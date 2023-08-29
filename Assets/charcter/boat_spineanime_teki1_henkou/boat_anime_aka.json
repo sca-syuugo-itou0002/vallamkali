@@ -1,0 +1,1355 @@
+{
+"skeleton": {
+	"hash": "2jGwPQ/gW+c",
+	"spine": "4.1.23",
+	"x": -382,
+	"y": -5,
+	"width": 764,
+	"height": 1462,
+	"images": "./images/",
+	"audio": "D:/セガインド/Eチーム/boat_アニメ/spineで作る/aka"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "SENTOU_karada", "parent": "root", "x": -13.6, "y": 1268.13, "color": "ff0000ff" },
+	{ "name": "atama", "parent": "SENTOU_karada", "x": 6.59, "y": 57.1, "color": "ff0000ff" },
+	{
+		"name": "hidariude",
+		"parent": "SENTOU_karada",
+		"length": 59.33,
+		"rotation": 101.21,
+		"x": -48.31,
+		"y": 23.06,
+		"color": "ff0000ff"
+	},
+	{
+		"name": "hidariude2",
+		"parent": "hidariude",
+		"length": 70.15,
+		"rotation": -33.76,
+		"x": 63.53,
+		"y": -1.39,
+		"color": "ff0000ff"
+	},
+	{
+		"name": "migiude",
+		"parent": "SENTOU_karada",
+		"length": 53.16,
+		"rotation": 54.67,
+		"x": 56.16,
+		"y": 8.88,
+		"color": "ff0000ff"
+	},
+	{
+		"name": "migiude2",
+		"parent": "migiude",
+		"length": 67.79,
+		"rotation": 56.94,
+		"x": 58.74,
+		"y": -0.83,
+		"color": "ff0000ff"
+	},
+	{ "name": "1hidari_karada", "parent": "root", "x": -95.83, "y": 1062.11, "color": "ffd400ff" },
+	{ "name": "1hidari_atama", "parent": "1hidari_karada", "x": -4.34, "y": 55.75, "color": "ffc600ff" },
+	{
+		"name": "1hidari_hidariude1",
+		"parent": "1hidari_karada",
+		"length": 55.13,
+		"rotation": 129.93,
+		"x": -50.98,
+		"y": 10.66,
+		"color": "ffd700ff"
+	},
+	{
+		"name": "1hidari_hidariude2",
+		"parent": "1hidari_hidariude1",
+		"length": 67.97,
+		"rotation": -61.26,
+		"x": 57.25,
+		"y": -0.99,
+		"color": "ffd700ff"
+	},
+	{
+		"name": "1hidari_migiude1",
+		"parent": "1hidari_karada",
+		"length": 64.85,
+		"rotation": 77.05,
+		"x": 48.92,
+		"y": 22.34,
+		"color": "ffd400ff"
+	},
+	{
+		"name": "1hidari_migiude2",
+		"parent": "1hidari_migiude1",
+		"length": 70.57,
+		"rotation": 32.85,
+		"x": 63.45,
+		"y": 1.91,
+		"color": "ffd400ff"
+	},
+	{ "name": "1migi_karada", "parent": "root", "x": 92.69, "y": 1063.8, "color": "ffc300ff" },
+	{ "name": "1migi_atama", "parent": "1migi_karada", "x": 8.09, "y": 53.05, "color": "ffc300ff" },
+	{
+		"name": "1migi_hidariude1",
+		"parent": "1migi_karada",
+		"length": 63.89,
+		"rotation": 103.84,
+		"x": -44.96,
+		"y": 20.68,
+		"color": "ffc300ff"
+	},
+	{
+		"name": "1migi_hidariude2",
+		"parent": "1migi_hidariude1",
+		"length": 69.28,
+		"rotation": -36.11,
+		"x": 67.16,
+		"y": -0.55,
+		"color": "ffc300ff"
+	},
+	{
+		"name": "1migi_migiude1",
+		"parent": "1migi_karada",
+		"length": 54.76,
+		"rotation": 49.84,
+		"x": 51.63,
+		"y": 8.82,
+		"color": "ffc300ff"
+	},
+	{
+		"name": "1migi_migiude2",
+		"parent": "1migi_migiude1",
+		"length": 69.73,
+		"rotation": 63.35,
+		"x": 61.08,
+		"y": 0.59,
+		"color": "ffc300ff"
+	},
+	{ "name": "2hidarii_karada", "parent": "root", "x": -135.79, "y": 860.91, "color": "79ff00ff" },
+	{ "name": "2hidarii_atama", "parent": "2hidarii_karada", "x": -7.38, "y": 57.94, "color": "79ff00ff" },
+	{
+		"name": "2hidarii_hidariude1",
+		"parent": "2hidarii_karada",
+		"length": 59.71,
+		"rotation": 129.6,
+		"x": -51.57,
+		"y": 9.86,
+		"color": "79ff00ff"
+	},
+	{
+		"name": "2hidarii_hidariude2",
+		"parent": "2hidarii_hidariude1",
+		"length": 70.49,
+		"rotation": -62.86,
+		"x": 61.75,
+		"y": -0.78,
+		"color": "79ff00ff"
+	},
+	{
+		"name": "２hidari＿migiude1",
+		"parent": "2hidarii_karada",
+		"length": 61.74,
+		"rotation": 77.24,
+		"x": 46.58,
+		"y": 21.59,
+		"color": "79ff00ff"
+	},
+	{
+		"name": "２hidari＿migiude2",
+		"parent": "２hidari＿migiude1",
+		"length": 64.16,
+		"rotation": 32.96,
+		"x": 67.27,
+		"y": 0.65,
+		"color": "79ff00ff"
+	},
+	{ "name": "2migi_karada", "parent": "root", "x": 133.47, "y": 860.91, "color": "9eff00ff" },
+	{ "name": "２migi＿atama", "parent": "2migi_karada", "x": 6.25, "y": 57.94, "color": "9eff00ff" },
+	{
+		"name": "2migi_hidariude1",
+		"parent": "2migi_karada",
+		"length": 66.97,
+		"rotation": 102.74,
+		"x": -45.44,
+		"y": 22.15,
+		"color": "9eff00ff"
+	},
+	{
+		"name": "2migi_hidariude2",
+		"parent": "2migi_hidariude1",
+		"length": 62.58,
+		"rotation": -33.61,
+		"x": 65.08,
+		"y": -1.41,
+		"color": "9eff00ff"
+	},
+	{
+		"name": "２migi＿migiude1",
+		"parent": "2migi_karada",
+		"length": 52.32,
+		"rotation": 48.52,
+		"x": 50.26,
+		"y": 11.06,
+		"color": "9eff00ff"
+	},
+	{
+		"name": "２migi＿migiude2",
+		"parent": "２migi＿migiude1",
+		"length": 67.51,
+		"rotation": 63.73,
+		"x": 63.01,
+		"y": 1.3,
+		"color": "9eff00ff"
+	},
+	{ "name": "3hidari_karada", "parent": "root", "x": -143.77, "y": 671.1, "color": "00ff8bff" },
+	{ "name": "3hidari_atama", "parent": "3hidari_karada", "x": -8.93, "y": 56.89, "color": "00ff8bff" },
+	{
+		"name": "3hidari_hidariude1",
+		"parent": "3hidari_karada",
+		"length": 53.47,
+		"rotation": 128.9,
+		"x": -54.99,
+		"y": 11.26,
+		"color": "00ff8bff"
+	},
+	{
+		"name": "3hidari_hidariude2",
+		"parent": "3hidari_hidariude1",
+		"length": 61.55,
+		"rotation": -61.59,
+		"x": 59.83,
+		"y": -1.41,
+		"color": "00ff8bff"
+	},
+	{
+		"name": "3hidari_migiude1",
+		"parent": "3hidari_karada",
+		"length": 54.12,
+		"rotation": 78.06,
+		"x": 45.79,
+		"y": 23.29,
+		"color": "00ff8bff"
+	},
+	{
+		"name": "3hidari_migiude2",
+		"parent": "3hidari_migiude1",
+		"length": 61.02,
+		"rotation": 29.93,
+		"x": 66.45,
+		"y": 0.87,
+		"color": "00ff8bff"
+	},
+	{ "name": "3migi_karada", "parent": "root", "x": 142.68, "y": 673.64, "color": "00ff92ff" },
+	{ "name": "3migi_atama", "parent": "3migi_karada", "x": 6.29, "y": 55.21, "color": "00ff92ff" },
+	{
+		"name": "3migi_hidariude1",
+		"parent": "3migi_karada",
+		"length": 58.67,
+		"rotation": 102.38,
+		"x": -45.8,
+		"y": 21.19,
+		"color": "00ff92ff"
+	},
+	{
+		"name": "3migi_hidariude2",
+		"parent": "3migi_hidariude1",
+		"length": 67.27,
+		"rotation": -36.28,
+		"x": 66.76,
+		"y": -0.41,
+		"color": "00ff92ff"
+	},
+	{
+		"name": "3migi_migiiude1",
+		"parent": "3migi_karada",
+		"length": 51.01,
+		"rotation": 52.07,
+		"x": 53.72,
+		"y": 9.39,
+		"color": "00ff92ff"
+	},
+	{ "name": "4hidari_karada", "parent": "root", "x": -144.8, "y": 484.75, "color": "002fffff" },
+	{ "name": "4hidari_atama", "parent": "4hidari_karada", "x": -8.25, "y": 57.34, "color": "002fffff" },
+	{
+		"name": "4hidari_migiude1",
+		"parent": "4hidari_karada",
+		"length": 57.5,
+		"rotation": 75.07,
+		"x": 45.47,
+		"y": 21.43,
+		"color": "002fffff"
+	},
+	{
+		"name": "4hidari_migiude2",
+		"parent": "4hidari_migiude1",
+		"length": 62.27,
+		"rotation": 34.65,
+		"x": 66.5,
+		"y": 3.54,
+		"color": "002fffff"
+	},
+	{
+		"name": "4hidari_hidariude1",
+		"parent": "4hidari_karada",
+		"length": 51.61,
+		"rotation": 130.1,
+		"x": -53.3,
+		"y": 9.03,
+		"color": "002fffff"
+	},
+	{
+		"name": "4hidari_hidariude2",
+		"parent": "4hidari_hidariude1",
+		"length": 63.56,
+		"rotation": -62.68,
+		"x": 60.6,
+		"y": -1.66,
+		"color": "002fffff"
+	},
+	{ "name": "4migi_karada", "parent": "root", "x": 141.06, "y": 483.91, "color": "001bffff" },
+	{ "name": "4migi_atama", "parent": "4migi_karada", "x": 8.83, "y": 56.09, "color": "001bffff" },
+	{
+		"name": "4migi_hidariude1",
+		"parent": "4migi_karada",
+		"length": 58.48,
+		"rotation": 102.31,
+		"x": -42.46,
+		"y": 22.02,
+		"color": "001bffff"
+	},
+	{
+		"name": "4migi_hidariude2",
+		"parent": "4migi_hidariude1",
+		"length": 62.98,
+		"rotation": -33.58,
+		"x": 67.08,
+		"y": -1.21,
+		"color": "001bffff"
+	},
+	{
+		"name": "4migi_migiude1",
+		"parent": "4migi_karada",
+		"length": 55.95,
+		"rotation": 49.03,
+		"x": 55.6,
+		"y": 10.14,
+		"color": "001bffff"
+	},
+	{
+		"name": "4migi_migiude2",
+		"parent": "4migi_migiude1",
+		"length": 63.28,
+		"rotation": 63.71,
+		"x": 62.88,
+		"y": 1.58,
+		"color": "001bffff"
+	},
+	{
+		"name": "3migi_migiiude2",
+		"parent": "3migi_migiiude1",
+		"length": 66.22,
+		"rotation": 59.73,
+		"x": 59.52,
+		"y": -0.02,
+		"color": "00ff92ff"
+	},
+	{ "name": "5hidari_karada", "parent": "root", "x": -147.2, "y": 294.66, "color": "ff00c9ff" },
+	{ "name": "5hidari_atama", "parent": "5hidari_karada", "x": -5.89, "y": 57.54, "color": "ff00c9ff" },
+	{
+		"name": "5hidari_migiude1",
+		"parent": "5hidari_karada",
+		"length": 57.33,
+		"rotation": 75.96,
+		"x": 46.88,
+		"y": 22.61,
+		"color": "ff00c9ff"
+	},
+	{
+		"name": "5hidari_migiude2",
+		"parent": "5hidari_migiude1",
+		"length": 64.13,
+		"rotation": 34.64,
+		"x": 66.69,
+		"y": 0.84,
+		"color": "ff00c9ff"
+	},
+	{
+		"name": "5hidari_hidariude1",
+		"parent": "5hidari_karada",
+		"length": 47.01,
+		"rotation": 129.88,
+		"x": -52.93,
+		"y": 8.97,
+		"color": "ff00c9ff"
+	},
+	{
+		"name": "5hidari_hidariude2",
+		"parent": "5hidari_hidariude1",
+		"length": 66.61,
+		"rotation": -61.35,
+		"x": 58.52,
+		"y": -2.96,
+		"color": "ff00c9ff"
+	},
+	{ "name": "5migi_karada", "parent": "root", "x": 141.24, "y": 294.06, "color": "ff00deff" },
+	{ "name": "5migi_atama", "parent": "5migi_karada", "x": 9.54, "y": 56.16, "color": "ff00deff" },
+	{
+		"name": "5migi_hidariude1",
+		"parent": "5migi_karada",
+		"length": 57.31,
+		"rotation": 103.91,
+		"x": -42.92,
+		"y": 22.25,
+		"color": "ff00deff"
+	},
+	{
+		"name": "5migi_hidariude2",
+		"parent": "5migi_hidariude1",
+		"length": 61.79,
+		"rotation": -36.07,
+		"x": 67.21,
+		"y": -1.91,
+		"color": "ff00deff"
+	},
+	{
+		"name": "5migi_migiude1",
+		"parent": "5migi_karada",
+		"length": 48.91,
+		"rotation": 50.27,
+		"x": 56.68,
+		"y": 10.26,
+		"color": "ff00deff"
+	},
+	{
+		"name": "5migi_migiude2",
+		"parent": "5migi_migiude1",
+		"length": 67.99,
+		"rotation": 61.69,
+		"x": 59.88,
+		"y": 2.21,
+		"color": "ff00deff"
+	},
+	{ "name": "kasa_aka_ue", "parent": "root", "x": -0.36, "y": 910.92, "color": "00dbffff" },
+	{ "name": "kasa_aka_sita", "parent": "root", "x": -0.13, "y": 548.46, "color": "00f0ffff" }
+],
+"slots": [
+	{ "name": "boat", "bone": "root", "attachment": "boat" },
+	{ "name": "asi", "bone": "atama", "attachment": "asi" },
+	{ "name": "kata", "bone": "root" },
+	{ "name": "karada", "bone": "SENTOU_karada", "attachment": "karada" },
+	{ "name": "←hizi", "bone": "hidariude2", "attachment": "←hizi" },
+	{ "name": "hidariude１", "bone": "hidariude", "attachment": "hidariude１" },
+	{ "name": "hidariude２", "bone": "hidariude2", "attachment": "hidariude２" },
+	{ "name": "kogu_aka", "bone": "hidariude2", "attachment": "kogu_aka" },
+	{ "name": "→hizi", "bone": "migiude", "attachment": "→hizi" },
+	{ "name": "migiude１", "bone": "migiude", "attachment": "migiude１" },
+	{ "name": "migiude２", "bone": "migiude2", "attachment": "migiude２" },
+	{ "name": "atama", "bone": "atama", "attachment": "atama" },
+	{ "name": "１migi＿asi", "bone": "1migi_atama", "attachment": "１migi＿asi" },
+	{ "name": "１migi＿kata", "bone": "root", "attachment": "１migi＿kata" },
+	{ "name": "１migi＿karada", "bone": "1migi_karada", "attachment": "１migi＿karada" },
+	{ "name": "１migi＿←hizi", "bone": "1migi_hidariude1", "attachment": "１migi＿←hizi" },
+	{ "name": "１migi＿hidariude1", "bone": "1migi_hidariude1", "attachment": "１migi＿hidariude1" },
+	{ "name": "１migi＿hidariude2", "bone": "1migi_hidariude2", "attachment": "１migi＿hidariude2" },
+	{ "name": "１migi＿kogu_aka", "bone": "1migi_hidariude2", "attachment": "１migi＿kogu_aka" },
+	{ "name": "１migi＿→hizi", "bone": "1migi_migiude1", "attachment": "１migi＿→hizi" },
+	{ "name": "1migi_migiude1", "bone": "1migi_migiude1", "attachment": "1migi_migiude1" },
+	{ "name": "1migi_migiude2", "bone": "1migi_migiude2", "attachment": "1migi_migiude2" },
+	{ "name": "1migi_atama", "bone": "1migi_atama", "attachment": "1migi_atama" },
+	{ "name": "１hidari＿asi", "bone": "1hidari_atama", "attachment": "１hidari＿asi" },
+	{ "name": "１hidari＿kata", "bone": "root", "attachment": "１hidari＿kata" },
+	{ "name": "１hidari＿karada", "bone": "1hidari_karada", "attachment": "１hidari＿karada" },
+	{ "name": "１hidari＿→hizi", "bone": "1hidari_migiude1", "attachment": "１hidari＿→hizi" },
+	{ "name": "1hidari_migiude1", "bone": "1hidari_migiude1", "attachment": "1hidari_migiude1" },
+	{ "name": "1hidari_migiude2", "bone": "1hidari_migiude2", "attachment": "1hidari_migiude2" },
+	{ "name": "1hidari_kogu_aka", "bone": "1hidari_migiude2", "attachment": "1hidari_kogu_aka" },
+	{ "name": "1hidari_←hizi", "bone": "1hidari_hidariude2", "attachment": "1hidari_←hizi" },
+	{ "name": "1hidari_hidariude1", "bone": "1hidari_hidariude1", "attachment": "1hidari_hidariude1" },
+	{ "name": "1hidari_hidariude2", "bone": "1hidari_hidariude2", "attachment": "1hidari_hidariude2" },
+	{ "name": "1hidari_atama", "bone": "1hidari_atama", "attachment": "1hidari_atama" },
+	{ "name": "2migi_asi", "bone": "２migi＿atama", "attachment": "2migi_asi" },
+	{ "name": "2migi_kata", "bone": "root", "attachment": "2migi_kata" },
+	{ "name": "2migi_karada", "bone": "2migi_karada", "attachment": "2migi_karada" },
+	{ "name": "2migi_←hizi", "bone": "2migi_hidariude1", "attachment": "2migi_←hizi" },
+	{ "name": "2migi_hidariude1", "bone": "2migi_hidariude1", "attachment": "2migi_hidariude1" },
+	{ "name": "2migi_hidariude2", "bone": "2migi_hidariude2", "attachment": "2migi_hidariude2" },
+	{ "name": "2migi_kogu_aka", "bone": "2migi_hidariude2", "attachment": "2migi_kogu_aka" },
+	{ "name": "２migi＿→hizi", "bone": "２migi＿migiude1", "attachment": "２migi＿→hizi" },
+	{ "name": "２migi＿migiude1", "bone": "２migi＿migiude1", "attachment": "２migi＿migiude1" },
+	{ "name": "２migi＿migiude2", "bone": "２migi＿migiude2", "attachment": "２migi＿migiude2" },
+	{ "name": "２migi＿atama", "bone": "２migi＿atama", "attachment": "２migi＿atama" },
+	{ "name": "２hidari＿asi", "bone": "2hidarii_atama", "attachment": "２hidari＿asi" },
+	{ "name": "２hidari＿kata", "bone": "root", "attachment": "２hidari＿kata" },
+	{ "name": "２hidari＿karada", "bone": "2hidarii_karada", "attachment": "２hidari＿karada" },
+	{ "name": "２hidari＿→hizi", "bone": "２hidari＿migiude1", "attachment": "２hidari＿→hizi" },
+	{ "name": "２hidari＿migiude1", "bone": "２hidari＿migiude1", "attachment": "２hidari＿migiude1" },
+	{ "name": "２hidari＿migiude2", "bone": "２hidari＿migiude2", "attachment": "２hidari＿migiude2" },
+	{ "name": "2hidarii_kogu_aka", "bone": "２hidari＿migiude2", "attachment": "2hidarii_kogu_aka" },
+	{ "name": "2hidarii_←hizi", "bone": "2hidarii_hidariude1", "attachment": "2hidarii_←hizi" },
+	{ "name": "2hidarii_hidariude1", "bone": "2hidarii_hidariude1", "attachment": "2hidarii_hidariude1" },
+	{ "name": "2hidarii_hidariude2", "bone": "2hidarii_hidariude2", "attachment": "2hidarii_hidariude2" },
+	{ "name": "2hidarii_atama", "bone": "2hidarii_atama", "attachment": "2hidarii_atama" },
+	{ "name": "3migi_asi", "bone": "3migi_atama", "attachment": "3migi_asi" },
+	{ "name": "3migi_kata", "bone": "root", "attachment": "3migi_kata" },
+	{ "name": "3migi_karada", "bone": "3migi_karada", "attachment": "3migi_karada" },
+	{ "name": "3migi_←hizi", "bone": "3migi_hidariude1", "attachment": "3migi_←hizi" },
+	{ "name": "3migi_hidariude1", "bone": "3migi_hidariude1", "attachment": "3migi_hidariude1" },
+	{ "name": "3migi_hidariude2", "bone": "3migi_hidariude2", "attachment": "3migi_hidariude2" },
+	{ "name": "3migi_kogu_aka", "bone": "3migi_hidariude2", "attachment": "3migi_kogu_aka" },
+	{ "name": "3migi_→hizi", "bone": "3migi_migiiude1", "attachment": "3migi_→hizi" },
+	{ "name": "3migi_migiiude1", "bone": "3migi_migiiude1", "attachment": "3migi_migiiude1" },
+	{ "name": "3migi_migiiude2", "bone": "3migi_migiiude2", "attachment": "3migi_migiiude2" },
+	{ "name": "3migi_atama", "bone": "3migi_atama", "attachment": "3migi_atama" },
+	{ "name": "3hidari_asi", "bone": "3hidari_atama", "attachment": "3hidari_asi" },
+	{ "name": "3hidari_kata", "bone": "root", "attachment": "3hidari_kata" },
+	{ "name": "3hidari_karada", "bone": "3hidari_karada", "attachment": "3hidari_karada" },
+	{ "name": "３hidari＿→hizi", "bone": "3hidari_migiude1", "attachment": "３hidari＿→hizi" },
+	{ "name": "3hidari_migiude1", "bone": "3hidari_migiude1", "attachment": "3hidari_migiude1" },
+	{ "name": "3hidari_migiude2", "bone": "3hidari_migiude2", "attachment": "3hidari_migiude2" },
+	{ "name": "3hidari_kogu_aka", "bone": "3hidari_migiude2", "attachment": "3hidari_kogu_aka" },
+	{ "name": "3hidari_←hizi", "bone": "3hidari_hidariude1", "attachment": "3hidari_←hizi" },
+	{ "name": "3hidari_hidariude1", "bone": "3hidari_hidariude1", "attachment": "3hidari_hidariude1" },
+	{ "name": "3hidari_hidariude2", "bone": "3hidari_hidariude2", "attachment": "3hidari_hidariude2" },
+	{ "name": "3hidari_atama", "bone": "3hidari_atama", "attachment": "3hidari_atama" },
+	{ "name": "4migi_asi", "bone": "4migi_atama", "attachment": "4migi_asi" },
+	{ "name": "4migi_kata", "bone": "root", "attachment": "4migi_kata" },
+	{ "name": "4migi_karada", "bone": "4migi_karada", "attachment": "4migi_karada" },
+	{ "name": "4migi_←hizi", "bone": "4migi_hidariude1", "attachment": "4migi_←hizi" },
+	{ "name": "4migi_hidariude1", "bone": "4migi_hidariude1", "attachment": "4migi_hidariude1" },
+	{ "name": "4migi_hidariude2", "bone": "4migi_hidariude2", "attachment": "4migi_hidariude2" },
+	{ "name": "4migi_kogu_aka", "bone": "4migi_hidariude2", "attachment": "4migi_kogu_aka" },
+	{ "name": "４migi＿→hizi", "bone": "4migi_migiude1", "attachment": "４migi＿→hizi" },
+	{ "name": "4migi_migiude1", "bone": "4migi_migiude1", "attachment": "4migi_migiude1" },
+	{ "name": "4migi_migiude2", "bone": "4migi_migiude2", "attachment": "4migi_migiude2" },
+	{ "name": "4migi_atama", "bone": "4migi_atama", "attachment": "4migi_atama" },
+	{ "name": "4hidari_asi", "bone": "4hidari_atama", "attachment": "4hidari_asi" },
+	{ "name": "4hidari_kata", "bone": "root", "attachment": "4hidari_kata" },
+	{ "name": "4hidari_karada", "bone": "4hidari_karada", "attachment": "4hidari_karada" },
+	{ "name": "4hidari_→hizi", "bone": "4hidari_migiude1", "attachment": "4hidari_→hizi" },
+	{ "name": "4hidari_migiude1", "bone": "4hidari_migiude1", "attachment": "4hidari_migiude1" },
+	{ "name": "4hidari_migiude2", "bone": "4hidari_migiude2", "attachment": "4hidari_migiude2" },
+	{ "name": "4hidari_kogu_aka", "bone": "4hidari_migiude2", "attachment": "4hidari_kogu_aka" },
+	{ "name": "4hidari_←hizi", "bone": "4hidari_hidariude1", "attachment": "4hidari_←hizi" },
+	{ "name": "4hidari_hidariude1", "bone": "4hidari_hidariude1", "attachment": "4hidari_hidariude1" },
+	{ "name": "4hidari_hidariude2", "bone": "4hidari_hidariude2", "attachment": "4hidari_hidariude2" },
+	{ "name": "4hidari_atama", "bone": "4hidari_atama", "attachment": "4hidari_atama" },
+	{ "name": "5migi_asi", "bone": "5migi_atama", "attachment": "5migi_asi" },
+	{ "name": "5migi_kata", "bone": "root", "attachment": "5migi_kata" },
+	{ "name": "5migi_karada", "bone": "5migi_karada", "attachment": "5migi_karada" },
+	{ "name": "5migi_←hizi", "bone": "5migi_hidariude1", "attachment": "5migi_←hizi" },
+	{ "name": "5migi_hidariude1", "bone": "5migi_hidariude1", "attachment": "5migi_hidariude1" },
+	{ "name": "5migi_hidariude2", "bone": "5migi_hidariude2", "attachment": "5migi_hidariude2" },
+	{ "name": "5migi_kogu_aka", "bone": "5migi_hidariude2", "attachment": "5migi_kogu_aka" },
+	{ "name": "5migi_→hizi", "bone": "5migi_migiude1", "attachment": "5migi_→hizi" },
+	{ "name": "5migi_migiude1", "bone": "5migi_migiude1", "attachment": "5migi_migiude1" },
+	{ "name": "5migi_migiude2", "bone": "5migi_migiude2", "attachment": "5migi_migiude2" },
+	{ "name": "5migi_atama", "bone": "5migi_atama", "attachment": "5migi_atama" },
+	{ "name": "5hidari_asi", "bone": "5hidari_atama", "attachment": "5hidari_asi" },
+	{ "name": "5hidari_kata", "bone": "root", "attachment": "5hidari_kata" },
+	{ "name": "5hidari_karada", "bone": "5hidari_karada", "attachment": "5hidari_karada" },
+	{ "name": "5hidari_→hizi", "bone": "5hidari_migiude1", "attachment": "5hidari_→hizi" },
+	{ "name": "5hidari_migiude1", "bone": "5hidari_migiude1", "attachment": "5hidari_migiude1" },
+	{ "name": "5hidari_migiude2", "bone": "5hidari_migiude2", "attachment": "5hidari_migiude2" },
+	{ "name": "5hidari_kogu_aka", "bone": "5hidari_migiude2", "attachment": "5hidari_kogu_aka" },
+	{ "name": "5hidari_←hizi", "bone": "5hidari_hidariude1", "attachment": "5hidari_←hizi" },
+	{ "name": "5hidari_hidariude1", "bone": "5hidari_hidariude1", "attachment": "5hidari_hidariude1" },
+	{ "name": "5hidari_hidariude2", "bone": "5hidari_hidariude2", "attachment": "5hidari_hidariude2" },
+	{ "name": "5hidari_atama", "bone": "5hidari_atama", "attachment": "5hidari_atama" },
+	{ "name": "mannaka", "bone": "root", "attachment": "mannaka" },
+	{ "name": "kasa_aka_sita", "bone": "kasa_aka_sita", "attachment": "kasa_aka_sita" },
+	{ "name": "kasa_aka_ue", "bone": "kasa_aka_ue", "attachment": "kasa_aka_ue" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"1hidari_atama": {
+				"1hidari_atama": { "x": -1.32, "y": -4.35, "width": 85, "height": 91 }
+			},
+			"1hidari_hidariude1": {
+				"1hidari_hidariude1": { "x": 26.68, "y": 2.7, "rotation": -129.93, "width": 60, "height": 73 }
+			},
+			"1hidari_hidariude2": {
+				"1hidari_hidariude2": { "x": 43.57, "y": 1.68, "rotation": -68.67, "width": 57, "height": 87 }
+			},
+			"1hidari_kogu_aka": {
+				"1hidari_kogu_aka": { "x": 73.52, "y": 143.5, "rotation": -109.9, "width": 271, "height": 90 }
+			},
+			"1hidari_migiude1": {
+				"1hidari_migiude1": { "x": 32.3, "y": 0.34, "rotation": -77.05, "width": 42, "height": 68 }
+			},
+			"1hidari_migiude2": {
+				"1hidari_migiude2": { "x": 43.79, "y": 1.12, "rotation": -109.9, "width": 59, "height": 83 }
+			},
+			"1hidari_←hizi": {
+				"1hidari_←hizi": { "x": 0.39, "y": 0.92, "rotation": -68.67, "width": 31, "height": 32 }
+			},
+			"1migi_atama": {
+				"1migi_atama": { "x": 0.72, "y": -3.35, "width": 85, "height": 91 }
+			},
+			"1migi_migiude1": {
+				"1migi_migiude1": { "x": 28.41, "y": -4.4, "rotation": -49.84, "width": 60, "height": 73 }
+			},
+			"1migi_migiude2": {
+				"1migi_migiude2": { "x": 41.49, "y": -1.73, "rotation": -113.2, "width": 57, "height": 87 }
+			},
+			"2hidarii_atama": {
+				"2hidarii_atama": { "x": 1.17, "y": -5.35, "width": 84, "height": 91 }
+			},
+			"2hidarii_hidariude1": {
+				"2hidarii_hidariude1": { "x": 28.5, "y": 1.93, "rotation": -129.6, "width": 60, "height": 73 }
+			},
+			"2hidarii_hidariude2": {
+				"2hidarii_hidariude2": { "x": 43.18, "y": -0.06, "rotation": -66.74, "width": 58, "height": 87 }
+			},
+			"2hidarii_kogu_aka": {
+				"2hidarii_kogu_aka": { "x": 72.39, "y": 143.87, "rotation": -110.2, "width": 270, "height": 91 }
+			},
+			"2hidarii_←hizi": {
+				"2hidarii_←hizi": { "x": 59.75, "y": -1.86, "rotation": -129.6, "width": 30, "height": 32 }
+			},
+			"2migi_asi": {
+				"2migi_asi": { "x": 5.78, "y": 28.15, "width": 183, "height": 110 }
+			},
+			"2migi_hidariude1": {
+				"2migi_hidariude1": { "x": 33.79, "y": 0.08, "rotation": -102.74, "width": 43, "height": 68 }
+			},
+			"2migi_hidariude2": {
+				"2migi_hidariude2": { "x": 43.02, "y": -0.13, "rotation": -69.12, "width": 59, "height": 84 }
+			},
+			"2migi_karada": {
+				"2migi_karada": { "x": 5.53, "y": 14.09, "width": 136, "height": 68 }
+			},
+			"2migi_kata": {
+				"2migi_kata": { "x": 88, "y": 892.5, "width": 36, "height": 35 }
+			},
+			"2migi_kogu_aka": {
+				"2migi_kogu_aka": { "x": 75.71, "y": -143.39, "rotation": -69.12, "width": 270, "height": 91 }
+			},
+			"2migi_←hizi": {
+				"2migi_←hizi": { "x": 66.32, "y": -1.13, "rotation": -102.74, "width": 29, "height": 30 }
+			},
+			"3hidari_asi": {
+				"3hidari_asi": { "x": -3.8, "y": 30.01, "width": 183, "height": 110 }
+			},
+			"3hidari_atama": {
+				"3hidari_atama": { "x": 0.7, "y": -3.99, "width": 84, "height": 90 }
+			},
+			"3hidari_hidariude1": {
+				"3hidari_hidariude1": { "x": 27.12, "y": 1.55, "rotation": -128.9, "width": 60, "height": 73 }
+			},
+			"3hidari_hidariude2": {
+				"3hidari_hidariude2": { "x": 42.88, "y": 0.32, "rotation": -67.31, "width": 58, "height": 87 }
+			},
+			"3hidari_karada": {
+				"3hidari_karada": { "x": -5.73, "y": 14.9, "width": 135, "height": 68 }
+			},
+			"3hidari_kata": {
+				"3hidari_kata": { "x": -98.5, "y": 703.5, "width": 35, "height": 35 }
+			},
+			"3hidari_kogu_aka": {
+				"3hidari_kogu_aka": { "x": 66.55, "y": 147.05, "rotation": -107.98, "width": 271, "height": 91 }
+			},
+			"3hidari_migiude1": {
+				"3hidari_migiude1": { "x": 33.34, "y": -0.08, "rotation": -78.06, "width": 42, "height": 68 }
+			},
+			"3hidari_migiude2": {
+				"3hidari_migiude2": { "x": 41.44, "y": 3.28, "rotation": -107.98, "width": 60, "height": 84 }
+			},
+			"3hidari_←hizi": {
+				"3hidari_←hizi": { "x": 58.73, "y": -1.47, "rotation": -128.9, "width": 31, "height": 32 }
+			},
+			"3migi_asi": {
+				"3migi_asi": { "x": 5.53, "y": 29.14, "width": 183, "height": 110 }
+			},
+			"3migi_atama": {
+				"3migi_atama": { "x": 2.03, "y": -4.86, "width": 84, "height": 90 }
+			},
+			"3migi_hidariude1": {
+				"3migi_hidariude1": { "x": 32.89, "y": -0.18, "rotation": -102.38, "width": 42, "height": 68 }
+			},
+			"3migi_hidariude2": {
+				"3migi_hidariude2": { "x": 41.52, "y": -0.23, "rotation": -66.1, "width": 60, "height": 84 }
+			},
+			"3migi_karada": {
+				"3migi_karada": { "x": 5.82, "y": 12.36, "width": 135, "height": 68 }
+			},
+			"3migi_kata": {
+				"3migi_kata": { "x": 97.5, "y": 703.5, "width": 35, "height": 35 }
+			},
+			"3migi_kogu_aka": {
+				"3migi_kogu_aka": { "x": 81.33, "y": -140.65, "rotation": -66.1, "width": 271, "height": 91 }
+			},
+			"3migi_migiiude1": {
+				"3migi_migiiude1": { "x": 27.41, "y": -3.49, "rotation": -52.07, "width": 60, "height": 73 }
+			},
+			"3migi_migiiude2": {
+				"3migi_migiiude2": { "x": 42.27, "y": -0.75, "rotation": -111.8, "width": 58, "height": 87 }
+			},
+			"3migi_←hizi": {
+				"3migi_←hizi": { "x": 65.43, "y": -1.18, "rotation": -102.38, "width": 28, "height": 30 }
+			},
+			"3migi_→hizi": {
+				"3migi_→hizi": { "x": 59.07, "y": -1.01, "rotation": -52.07, "width": 31, "height": 32 }
+			},
+			"4hidari_asi": {
+				"4hidari_asi": { "x": -4.45, "y": 27.91, "width": 183, "height": 110 }
+			},
+			"4hidari_atama": {
+				"4hidari_atama": { "x": 0.05, "y": -6.09, "width": 84, "height": 90 }
+			},
+			"4hidari_hidariude1": {
+				"4hidari_hidariude1": { "x": 28.67, "y": 1.88, "rotation": -130.1, "width": 60, "height": 73 }
+			},
+			"4hidari_hidariude2": {
+				"4hidari_hidariude2": { "x": 43.3, "y": 0.83, "rotation": -67.42, "width": 58, "height": 87 }
+			},
+			"4hidari_karada": {
+				"4hidari_karada": { "x": -5.2, "y": 12.75, "width": 136, "height": 67 }
+			},
+			"4hidari_kata": {
+				"4hidari_kata": { "x": -99.5, "y": 515, "width": 35, "height": 34 }
+			},
+			"4hidari_kogu_aka": {
+				"4hidari_kogu_aka": { "x": 71.19, "y": 144.87, "rotation": -109.71, "width": 270, "height": 91 }
+			},
+			"4hidari_migiude1": {
+				"4hidari_migiude1": { "x": 33.73, "y": 0.9, "rotation": -75.07, "width": 43, "height": 68 }
+			},
+			"4hidari_migiude2": {
+				"4hidari_migiude2": { "x": 41.45, "y": 2.56, "rotation": -109.71, "width": 60, "height": 83 }
+			},
+			"4hidari_←hizi": {
+				"4hidari_←hizi": { "x": 59.83, "y": -1.49, "rotation": -130.1, "width": 31, "height": 31 }
+			},
+			"4hidari_→hizi": {
+				"4hidari_→hizi": { "x": 66.19, "y": 3.34, "rotation": -75.07, "width": 29, "height": 30 }
+			},
+			"4migi_asi": {
+				"4migi_asi": { "x": 6.61, "y": 29.99, "width": 183, "height": 110 }
+			},
+			"4migi_atama": {
+				"4migi_atama": { "x": 3.11, "y": -4.01, "width": 84, "height": 90 }
+			},
+			"4migi_hidariude1": {
+				"4migi_hidariude1": { "x": 33.82, "y": -0.11, "rotation": -102.31, "width": 43, "height": 68 }
+			},
+			"4migi_hidariude2": {
+				"4migi_hidariude2": { "x": 41.19, "y": -1.69, "rotation": -68.73, "width": 60, "height": 83 }
+			},
+			"4migi_karada": {
+				"4migi_karada": { "x": 8.94, "y": 13.59, "width": 136, "height": 67 }
+			},
+			"4migi_kata": {
+				"4migi_kata": { "x": 99.5, "y": 515, "width": 35, "height": 34 }
+			},
+			"4migi_kogu_aka": {
+				"4migi_kogu_aka": { "x": 75.16, "y": -144.06, "rotation": -68.73, "width": 270, "height": 91 }
+			},
+			"4migi_migiude1": {
+				"4migi_migiude1": { "x": 29.43, "y": -2.7, "rotation": -49.03, "width": 60, "height": 73 }
+			},
+			"4migi_migiude2": {
+				"4migi_migiude2": { "x": 42.36, "y": 0.35, "rotation": -112.74, "width": 58, "height": 87 }
+			},
+			"4migi_←hizi": {
+				"4migi_←hizi": { "x": 66.36, "y": -1.07, "rotation": -102.31, "width": 29, "height": 30 }
+			},
+			"5hidari_asi": {
+				"5hidari_asi": { "x": -4.4, "y": 27.81, "width": 183, "height": 110 }
+			},
+			"5hidari_atama": {
+				"5hidari_atama": { "x": 0.1, "y": -6.19, "width": 84, "height": 90 }
+			},
+			"5hidari_hidariude1": {
+				"5hidari_hidariude1": { "x": 27.47, "y": 0.33, "rotation": -129.88, "width": 60, "height": 73 }
+			},
+			"5hidari_hidariude2": {
+				"5hidari_hidariude2": { "x": 43.85, "y": 0.71, "rotation": -68.54, "width": 58, "height": 87 }
+			},
+			"5hidari_karada": {
+				"5hidari_karada": { "x": -2.8, "y": 12.84, "width": 136, "height": 67 }
+			},
+			"5hidari_kata": {
+				"5hidari_kata": { "x": -99.5, "y": 325, "width": 35, "height": 34 }
+			},
+			"5hidari_kogu_aka": {
+				"5hidari_kogu_aka": { "x": 73.25, "y": 145.57, "rotation": -110.61, "width": 270, "height": 91 }
+			},
+			"5hidari_migiude1": {
+				"5hidari_migiude1": { "x": 32.92, "y": -0.86, "rotation": -75.96, "width": 43, "height": 68 }
+			},
+			"5hidari_migiude2": {
+				"5hidari_migiude2": { "x": 40.94, "y": 2.81, "rotation": -110.61, "width": 60, "height": 83 }
+			},
+			"5hidari_←hizi": {
+				"5hidari_←hizi": { "x": 58.65, "y": -2.92, "rotation": -129.88, "width": 31, "height": 31 }
+			},
+			"5hidari_→hizi": {
+				"5hidari_→hizi": { "x": 65.42, "y": 1.08, "rotation": -75.96, "width": 29, "height": 30 }
+			},
+			"5migi_asi": {
+				"5migi_asi": { "x": 4.72, "y": 29.78, "width": 183, "height": 110 }
+			},
+			"5migi_atama": {
+				"5migi_atama": { "x": 1.22, "y": -4.22, "width": 84, "height": 90 }
+			},
+			"5migi_hidariude1": {
+				"5migi_hidariude1": { "x": 33.49, "y": -0.75, "rotation": -103.91, "width": 42, "height": 68 }
+			},
+			"5migi_hidariude2": {
+				"5migi_hidariude2": { "x": 41.13, "y": -1.58, "rotation": -67.83, "width": 60, "height": 83 }
+			},
+			"5migi_karada": {
+				"5migi_karada": { "x": 8.26, "y": 13.44, "width": 135, "height": 67 }
+			},
+			"5migi_kata": {
+				"5migi_kata": { "x": 98.5, "y": 325, "width": 35, "height": 34 }
+			},
+			"5migi_kogu_aka": {
+				"5migi_kogu_aka": { "x": 77.13, "y": -142.95, "rotation": -67.83, "width": 271, "height": 91 }
+			},
+			"5migi_migiude1": {
+				"5migi_migiude1": { "x": 27.72, "y": -1.78, "rotation": -50.27, "width": 60, "height": 73 }
+			},
+			"5migi_migiude2": {
+				"5migi_migiude2": { "x": 42.63, "y": -0.49, "rotation": -111.97, "width": 58, "height": 87 }
+			},
+			"5migi_←hizi": {
+				"5migi_←hizi": { "x": 66.12, "y": -2.13, "rotation": -103.91, "width": 29, "height": 30 }
+			},
+			"5migi_→hizi": {
+				"5migi_→hizi": { "x": 58.9, "y": 1.38, "rotation": -50.27, "width": 31, "height": 31 }
+			},
+			"asi": {
+				"asi": { "x": 9.51, "y": 24.27, "width": 123, "height": 101 }
+			},
+			"atama": {
+				"atama": { "x": 3.01, "y": -6.23, "width": 84, "height": 90 }
+			},
+			"boat": {
+				"boat": { "x": -0.5, "y": 726, "width": 385, "height": 1463 }
+			},
+			"hidariude１": {
+				"hidariude１": { "x": 30.82, "y": -2.96, "rotation": -101.21, "width": 42, "height": 68 }
+			},
+			"hidariude２": {
+				"hidariude２": { "x": 42.82, "y": -2.14, "rotation": -67.45, "width": 59, "height": 83 }
+			},
+			"karada": {
+				"karada": { "x": 7.1, "y": 12.87, "width": 135, "height": 68 }
+			},
+			"kasa_aka_sita": {
+				"kasa_aka_sita": { "x": -0.37, "y": -0.96, "width": 259, "height": 259 }
+			},
+			"kasa_aka_ue": {
+				"kasa_aka_ue": { "x": -0.14, "y": -0.92, "width": 259, "height": 260 }
+			},
+			"kata": {
+				"kata": { "x": -57.5, "y": 1298, "width": 35, "height": 34 }
+			},
+			"kogu_aka": {
+				"kogu_aka": { "x": 83.35, "y": -168.84, "rotation": -67.45, "width": 322, "height": 104 }
+			},
+			"mannaka": {
+				"mannaka": { "y": 634.5, "width": 130, "height": 673 }
+			},
+			"migiude１": {
+				"migiude１": { "x": 27.38, "y": -3.2, "rotation": -54.67, "width": 60, "height": 73 }
+			},
+			"migiude２": {
+				"migiude２": { "x": 42.28, "y": -2, "rotation": -111.61, "width": 57, "height": 87 }
+			},
+			"←hizi": {
+				"←hizi": { "x": 0.93, "y": -1.66, "rotation": -67.45, "width": 28, "height": 30 }
+			},
+			"→hizi": {
+				"→hizi": { "x": 58.71, "y": -2.44, "rotation": -54.67, "width": 31, "height": 31 }
+			},
+			"１hidari＿asi": {
+				"１hidari＿asi": { "x": -5.32, "y": 29.15, "width": 183, "height": 110 }
+			},
+			"１hidari＿karada": {
+				"１hidari＿karada": { "x": -3.17, "y": 12.89, "width": 136, "height": 68 }
+			},
+			"１hidari＿kata": {
+				"１hidari＿kata": { "x": -47.5, "y": 1093, "width": 35, "height": 34 }
+			},
+			"１hidari＿→hizi": {
+				"１hidari＿→hizi": { "x": 65.21, "y": 2.27, "rotation": -77.05, "width": 29, "height": 29 }
+			},
+			"１migi＿asi": {
+				"１migi＿asi": { "x": 3.72, "y": 28.65, "width": 183, "height": 113 }
+			},
+			"１migi＿hidariude1": {
+				"１migi＿hidariude1": { "x": 32.45, "y": -0.03, "rotation": -103.84, "width": 42, "height": 68 }
+			},
+			"１migi＿hidariude2": {
+				"１migi＿hidariude2": { "x": 41.8, "y": -2.66, "rotation": -67.73, "width": 59, "height": 83 }
+			},
+			"１migi＿karada": {
+				"１migi＿karada": { "x": 6.31, "y": 11.2, "width": 136, "height": 68 }
+			},
+			"１migi＿kata": {
+				"１migi＿kata": { "x": 47.5, "y": 1093, "width": 35, "height": 34 }
+			},
+			"１migi＿kogu_aka": {
+				"１migi＿kogu_aka": { "x": 77.79, "y": -144.61, "rotation": -67.73, "width": 271, "height": 90 }
+			},
+			"１migi＿←hizi": {
+				"１migi＿←hizi": { "x": 65.32, "y": -2.47, "rotation": -103.84, "width": 29, "height": 29 }
+			},
+			"１migi＿→hizi": {
+				"１migi＿→hizi": { "x": 59.95, "y": -0.68, "rotation": -49.84, "width": 31, "height": 32 }
+			},
+			"２hidari＿asi": {
+				"２hidari＿asi": { "x": -3.33, "y": 28.15, "width": 183, "height": 110 }
+			},
+			"２hidari＿karada": {
+				"２hidari＿karada": { "x": -3.21, "y": 14.09, "width": 136, "height": 68 }
+			},
+			"２hidari＿kata": {
+				"２hidari＿kata": { "x": -88, "y": 892.5, "width": 36, "height": 35 }
+			},
+			"２hidari＿migiude1": {
+				"２hidari＿migiude1": { "x": 34.6, "y": -1.09, "rotation": -77.24, "width": 43, "height": 68 }
+			},
+			"２hidari＿migiude2": {
+				"２hidari＿migiude2": { "x": 41.73, "y": 1.18, "rotation": -110.2, "width": 59, "height": 84 }
+			},
+			"２hidari＿→hizi": {
+				"２hidari＿→hizi": { "x": 67.14, "y": 0.12, "rotation": -77.24, "width": 29, "height": 30 }
+			},
+			"２migi＿atama": {
+				"２migi＿atama": { "x": 2.28, "y": -5.35, "width": 84, "height": 91 }
+			},
+			"２migi＿migiude1": {
+				"２migi＿migiude1": { "x": 30.05, "y": -4.49, "rotation": -48.52, "width": 60, "height": 73 }
+			},
+			"２migi＿migiude2": {
+				"２migi＿migiude2": { "x": 41.47, "y": -0.22, "rotation": -112.25, "width": 58, "height": 87 }
+			},
+			"２migi＿→hizi": {
+				"２migi＿→hizi": { "x": 61.16, "y": 0.32, "rotation": -48.52, "width": 30, "height": 32 }
+			},
+			"３hidari＿→hizi": {
+				"３hidari＿→hizi": { "x": 65.99, "y": 0.18, "rotation": -78.06, "width": 29, "height": 30 }
+			},
+			"４migi＿→hizi": {
+				"４migi＿→hizi": { "x": 60.54, "y": 1.13, "rotation": -49.03, "width": 31, "height": 31 }
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {},
+	"boat_anime": {
+		"bones": {
+			"hidariude": {
+				"rotate": [
+					{ "value": 25.66 },
+					{ "time": 1.6667, "value": 11.87 },
+					{ "time": 3.3333, "value": 25.66 },
+					{ "time": 5, "value": 11.87 },
+					{ "time": 6.6667, "value": 25.66 }
+				]
+			},
+			"1migi_hidariude1": {
+				"rotate": [
+					{ "value": 25.66 },
+					{ "time": 1.6667, "value": 10.74 },
+					{ "time": 3.3333, "value": 25.66 },
+					{ "time": 5, "value": 10.74 },
+					{ "time": 6.6667, "value": 25.66 }
+				]
+			},
+			"2migi_hidariude1": {
+				"rotate": [
+					{ "value": 25.66 },
+					{ "time": 1.6667, "value": 10.74 },
+					{ "time": 3.3333, "value": 25.66 },
+					{ "time": 5, "value": 10.74 },
+					{ "time": 6.6667, "value": 25.66 }
+				]
+			},
+			"3migi_hidariude1": {
+				"rotate": [
+					{ "value": 25.66 },
+					{ "time": 1.6667, "value": 10.74 },
+					{ "time": 3.3333, "value": 25.66 },
+					{ "time": 5, "value": 10.74 },
+					{ "time": 6.6667, "value": 25.66 }
+				]
+			},
+			"4migi_hidariude1": {
+				"rotate": [
+					{ "value": 25.66 },
+					{ "time": 1.6667, "value": 10.74 },
+					{ "time": 3.3333, "value": 25.66 },
+					{ "time": 5, "value": 10.74 },
+					{ "time": 6.6667, "value": 25.66 }
+				]
+			},
+			"5migi_hidariude1": {
+				"rotate": [
+					{ "value": 25.66 },
+					{ "time": 1.6667, "value": 10.74 },
+					{ "time": 3.3333, "value": 25.66 },
+					{ "time": 5, "value": 10.74 },
+					{ "time": 6.6667, "value": 25.66 }
+				]
+			},
+			"hidariude2": {
+				"rotate": [
+					{ "value": -23.21 }
+				]
+			},
+			"1migi_hidariude2": {
+				"rotate": [
+					{ "value": -23.21 },
+					{ "time": 1.6667, "value": -27.36 },
+					{ "time": 3.3333, "value": -23.21 },
+					{ "time": 5, "value": -27.36 },
+					{ "time": 6.6667, "value": -23.21 }
+				]
+			},
+			"2migi_hidariude2": {
+				"rotate": [
+					{ "value": -23.21 },
+					{ "time": 1.6667, "value": -27.36 },
+					{ "time": 3.3333, "value": -23.21 },
+					{ "time": 5, "value": -27.36 },
+					{ "time": 6.6667, "value": -23.21 }
+				]
+			},
+			"3migi_hidariude2": {
+				"rotate": [
+					{ "value": -23.21 },
+					{ "time": 1.6667, "value": -27.36 },
+					{ "time": 3.3333, "value": -23.21 },
+					{ "time": 5, "value": -27.36 },
+					{ "time": 6.6667, "value": -23.21 }
+				]
+			},
+			"4migi_hidariude2": {
+				"rotate": [
+					{ "value": -23.21 },
+					{ "time": 1.6667, "value": -27.36 },
+					{ "time": 3.3333, "value": -23.21 },
+					{ "time": 5, "value": -27.36 },
+					{ "time": 6.6667, "value": -23.21 }
+				]
+			},
+			"5migi_hidariude2": {
+				"rotate": [
+					{ "value": -23.21 },
+					{ "time": 1.6667, "value": -27.36 },
+					{ "time": 3.3333, "value": -23.21 },
+					{ "time": 5, "value": -27.36 },
+					{ "time": 6.6667, "value": -23.21 }
+				]
+			},
+			"1migi_migiude1": {
+				"rotate": [
+					{ "value": 4.38 },
+					{ "time": 1.6667, "value": -38.48 },
+					{ "time": 3.3333, "value": 4.38 },
+					{ "time": 5, "value": -38.48 },
+					{ "time": 6.6667, "value": 4.38 }
+				]
+			},
+			"２migi＿migiude1": {
+				"rotate": [
+					{ "value": 4.38 },
+					{ "time": 1.6667, "value": -38.48 },
+					{ "time": 3.3333, "value": 4.38 },
+					{ "time": 5, "value": -38.48 },
+					{ "time": 6.6667, "value": 4.38 }
+				]
+			},
+			"3migi_migiiude1": {
+				"rotate": [
+					{ "value": 4.38 },
+					{ "time": 1.6667, "value": -38.48 },
+					{ "time": 3.3333, "value": 4.38 },
+					{ "time": 5, "value": -38.48 },
+					{ "time": 6.6667, "value": 4.38 }
+				]
+			},
+			"4migi_migiude1": {
+				"rotate": [
+					{ "value": 4.38 },
+					{ "time": 1.6667, "value": -38.48 },
+					{ "time": 3.3333, "value": 4.38 },
+					{ "time": 5, "value": -38.48 },
+					{ "time": 6.6667, "value": 4.38 }
+				]
+			},
+			"5migi_migiude1": {
+				"rotate": [
+					{ "value": 4.38 },
+					{ "time": 1.6667, "value": -38.48 },
+					{ "time": 3.3333, "value": 4.38 },
+					{ "time": 5, "value": -38.48 },
+					{ "time": 6.6667, "value": 4.38 }
+				]
+			},
+			"1migi_migiude2": {
+				"rotate": [
+					{ "value": 6.52 },
+					{ "time": 1.6667, "value": 52.86 },
+					{ "time": 3.3333, "value": 6.52 },
+					{ "time": 5, "value": 52.86 },
+					{ "time": 6.6667, "value": 6.52 }
+				]
+			},
+			"２migi＿migiude2": {
+				"rotate": [
+					{ "value": 6.52 },
+					{ "time": 1.6667, "value": 52.86 },
+					{ "time": 3.3333, "value": 6.52 },
+					{ "time": 5, "value": 52.86 },
+					{ "time": 6.6667, "value": 6.52 }
+				]
+			},
+			"4migi_migiude2": {
+				"rotate": [
+					{ "value": 6.52 },
+					{ "time": 1.6667, "value": 52.86 },
+					{ "time": 3.3333, "value": 6.52 },
+					{ "time": 5, "value": 52.86 },
+					{ "time": 6.6667, "value": 6.52 }
+				]
+			},
+			"3migi_migiiude2": {
+				"rotate": [
+					{ "value": 6.52 },
+					{ "time": 1.6667, "value": 52.86 },
+					{ "time": 3.3333, "value": 6.52 },
+					{ "time": 5, "value": 52.86 },
+					{ "time": 6.6667, "value": 6.52 }
+				]
+			},
+			"5migi_migiude2": {
+				"rotate": [
+					{ "value": 6.52 },
+					{ "time": 1.6667, "value": 52.86 },
+					{ "time": 3.3333, "value": 6.52 },
+					{ "time": 5, "value": 52.86 },
+					{ "time": 6.6667, "value": 6.52 }
+				]
+			},
+			"migiude": {
+				"rotate": [
+					{ "value": -29.33 },
+					{ "time": 1.6667, "value": -70.17 },
+					{ "time": 3.3333, "value": -29.33 },
+					{ "time": 5, "value": -70.17 },
+					{ "time": 6.6667, "value": -29.33 }
+				]
+			},
+			"migiude2": {
+				"rotate": [
+					{ "value": 13.08 },
+					{ "time": 1.6667, "value": 46.57 },
+					{ "time": 3.3333, "value": 13.08 },
+					{ "time": 5, "value": 46.57 },
+					{ "time": 6.6667, "value": 13.08 }
+				]
+			},
+			"1hidari_migiude1": {
+				"rotate": [
+					{ "value": -23.58 },
+					{ "time": 1.6667, "value": -9.97 },
+					{ "time": 3.3333, "value": -23.58 },
+					{ "time": 5, "value": -9.97 },
+					{ "time": 6.6667, "value": -23.58 }
+				]
+			},
+			"２hidari＿migiude1": {
+				"rotate": [
+					{ "value": -23.58 },
+					{ "time": 1.6667, "value": -9.97 },
+					{ "time": 3.3333, "value": -23.58 },
+					{ "time": 5, "value": -9.97 },
+					{ "time": 6.6667, "value": -23.58 }
+				]
+			},
+			"3hidari_migiude1": {
+				"rotate": [
+					{ "value": -23.58 },
+					{ "time": 1.6667, "value": -9.97 },
+					{ "time": 3.3333, "value": -23.58 },
+					{ "time": 5, "value": -9.97 },
+					{ "time": 6.6667, "value": -23.58 }
+				]
+			},
+			"4hidari_migiude1": {
+				"rotate": [
+					{ "value": -23.58 },
+					{ "time": 1.6667, "value": -9.97 },
+					{ "time": 3.3333, "value": -23.58 },
+					{ "time": 5, "value": -9.97 },
+					{ "time": 6.6667, "value": -23.58 }
+				]
+			},
+			"5hidari_migiude1": {
+				"rotate": [
+					{ "value": -23.58 },
+					{ "time": 1.6667, "value": -9.97 },
+					{ "time": 3.3333, "value": -23.58 },
+					{ "time": 5, "value": -9.97 },
+					{ "time": 6.6667, "value": -23.58 }
+				]
+			},
+			"1hidari_migiude2": {
+				"rotate": [
+					{ "value": 22.09 },
+					{ "time": 1.6667, "value": 26.9 },
+					{ "time": 3.3333, "value": 22.09 },
+					{ "time": 5, "value": 26.9 },
+					{ "time": 6.6667, "value": 22.09 }
+				]
+			},
+			"２hidari＿migiude2": {
+				"rotate": [
+					{ "value": 22.09 },
+					{ "time": 1.6667, "value": 26.9 },
+					{ "time": 3.3333, "value": 22.09 },
+					{ "time": 5, "value": 26.9 },
+					{ "time": 6.6667, "value": 22.09 }
+				]
+			},
+			"3hidari_migiude2": {
+				"rotate": [
+					{ "value": 22.09 },
+					{ "time": 1.6667, "value": 26.9 },
+					{ "time": 3.3333, "value": 22.09 },
+					{ "time": 5, "value": 26.9 },
+					{ "time": 6.6667, "value": 22.09 }
+				]
+			},
+			"4hidari_migiude2": {
+				"rotate": [
+					{ "value": 22.09 },
+					{ "time": 1.6667, "value": 26.9 },
+					{ "time": 3.3333, "value": 22.09 },
+					{ "time": 5, "value": 26.9 },
+					{ "time": 6.6667, "value": 22.09 }
+				]
+			},
+			"5hidari_migiude2": {
+				"rotate": [
+					{ "value": 22.09 },
+					{ "time": 1.6667, "value": 26.9 },
+					{ "time": 3.3333, "value": 22.09 },
+					{ "time": 5, "value": 26.9 },
+					{ "time": 6.6667, "value": 22.09 }
+				]
+			},
+			"1hidari_hidariude1": {
+				"rotate": [
+					{ "value": -3.02 },
+					{ "time": 1.6667, "value": 39.82 },
+					{ "time": 3.3333, "value": -3.02 },
+					{ "time": 5, "value": 39.82 },
+					{ "time": 6.6667, "value": -3.02 }
+				]
+			},
+			"2hidarii_hidariude1": {
+				"rotate": [
+					{ "value": -3.02 },
+					{ "time": 1.6667, "value": 39.82 },
+					{ "time": 3.3333, "value": -3.02 },
+					{ "time": 5, "value": 39.82 },
+					{ "time": 6.6667, "value": -3.02 }
+				]
+			},
+			"3hidari_hidariude1": {
+				"rotate": [
+					{ "value": -3.02 },
+					{ "time": 1.6667, "value": 39.82 },
+					{ "time": 3.3333, "value": -3.02 },
+					{ "time": 5, "value": 39.82 },
+					{ "time": 6.6667, "value": -3.02 }
+				]
+			},
+			"4hidari_hidariude1": {
+				"rotate": [
+					{ "value": -3.02 },
+					{ "time": 1.6667, "value": 39.82 },
+					{ "time": 3.3333, "value": -3.02 },
+					{ "time": 5, "value": 39.82 },
+					{ "time": 6.6667, "value": -3.02 }
+				]
+			},
+			"5hidari_hidariude1": {
+				"rotate": [
+					{ "value": -3.02 },
+					{ "time": 1.6667, "value": 39.82 },
+					{ "time": 3.3333, "value": -3.02 },
+					{ "time": 5, "value": 39.82 },
+					{ "time": 6.6667, "value": -3.02 }
+				]
+			},
+			"1hidari_hidariude2": {
+				"rotate": [
+					{ "value": -5.8 },
+					{ "time": 1.6667, "value": -53.98 },
+					{ "time": 3.3333, "value": -5.8 },
+					{ "time": 5, "value": -53.98 },
+					{ "time": 6.6667, "value": -5.8 }
+				]
+			},
+			"2hidarii_hidariude2": {
+				"rotate": [
+					{ "value": -5.8 },
+					{ "time": 1.6667, "value": -53.98 },
+					{ "time": 3.3333, "value": -5.8 },
+					{ "time": 5, "value": -53.98 },
+					{ "time": 6.6667, "value": -5.8 }
+				]
+			},
+			"3hidari_hidariude2": {
+				"rotate": [
+					{ "value": -5.8 },
+					{ "time": 1.6667, "value": -53.98 },
+					{ "time": 3.3333, "value": -5.8 },
+					{ "time": 5, "value": -53.98 },
+					{ "time": 6.6667, "value": -5.8 }
+				]
+			},
+			"4hidari_hidariude2": {
+				"rotate": [
+					{ "value": -5.8 },
+					{ "time": 1.6667, "value": -53.98 },
+					{ "time": 3.3333, "value": -5.8 },
+					{ "time": 5, "value": -53.98 },
+					{ "time": 6.6667, "value": -5.8 }
+				]
+			},
+			"5hidari_hidariude2": {
+				"rotate": [
+					{ "value": -5.8 },
+					{ "time": 1.6667, "value": -53.98 },
+					{ "time": 3.3333, "value": -5.8 },
+					{ "time": 5, "value": -53.98 },
+					{ "time": 6.6667, "value": -5.8 }
+				]
+			},
+			"kasa_aka_ue": {
+				"rotate": [
+					{},
+					{ "time": 6.6667, "value": 360 }
+				]
+			},
+			"kasa_aka_sita": {
+				"rotate": [
+					{},
+					{ "time": 6.6667, "value": 360 }
+				]
+			}
+		}
+	}
+}
+}
