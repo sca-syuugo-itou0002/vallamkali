@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,8 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private float startY; // ˆÚ“®ŠJn‚ÌYÀ•W
     private float moveInterval = 1.0f; // ˆÚ“®ŠÔŠu
     private float lastMoveTime; // ÅŒã‚ÉˆÚ“®‚µ‚½ŠÔ
-    public Text Scoretext;
-    private int score_num=0;
+    public ScoreManager SM;
     private void Start()
     {
         startY = transform.position.y;
@@ -60,12 +58,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            score_num+=1;
+            SM.SetScore();
             Destroy(other.gameObject);
         }
-    }
-    public void SwitchResultScene()
-    {
-        
     }
 }

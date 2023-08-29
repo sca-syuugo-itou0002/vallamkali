@@ -13,7 +13,7 @@ public class SliderMove : MonoBehaviour
 	Slider powerMeterSlider01;
 	//パワーメーターのスピードの倍率。
 	[SerializeField]
-	float powerMeterSpeedRate = 0.01f;
+	float powerMeterSpeedRate = 0.5f;
 
 	//パワーメーターを止めた時の値。
 	//0～1までの間の値が入るので、使用する時はMathf.Lerp(powerMin, powerMax, powerMeterValue)みたいな感じで。
