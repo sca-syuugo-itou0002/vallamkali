@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,9 +10,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving = false; // プレイヤーが移動中かどうかのフラグ
     private float targetY; // 移動のターゲット位置
     private float startY; // 移動開始時のY座標
-    private float moveInterval = 3.0f; // 移動間隔
+    private float moveInterval = 1.0f; // 移動間隔
     private float lastMoveTime; // 最後に移動した時間
-    //private Rigidbody2D rb;
+    public Text Scoretext;
+    private int score_num=0;
     private void Start()
     {
         startY = transform.position.y;
@@ -40,15 +43,8 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(movement);
 
             // ゲージの値に基づいて移動を開始
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonUp(0))
             {
-                /*
-                float powerValue = FindObjectOfType<SliderMove>().GetPowerMeterValue();
-                float distance = Mathf.Lerp(0, 3, powerValue);
-                //float distance = 3.0f; // 常に固定の距離を進む
-                targetY = startY + distance;
-                //targetY = startY + distance * Mathf.Sign(verticalInput); // プレイヤーの入力に基づいて進行方向を設定
-                isMoving = true;*/
                 float currentTime = Time.time;
                 if (currentTime - lastMoveTime >= moveInterval)
                 {
@@ -64,7 +60,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            score_num+=1;
             Destroy(other.gameObject);
         }
+    }
+    public void SwitchResultScene()
+    {
+        
     }
 }

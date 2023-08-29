@@ -9,8 +9,10 @@ public class SliderMove : MonoBehaviour
 	[SerializeField]
 	Slider powerMeterSlider;
 
-
+	[SerializeField]
+	Slider powerMeterSlider01;
 	//パワーメーターのスピードの倍率。
+	[SerializeField]
 	float powerMeterSpeedRate = 0.01f;
 
 	//パワーメーターを止めた時の値。
@@ -26,7 +28,7 @@ public class SliderMove : MonoBehaviour
 
     private void Update()
     {
-		Debug.Log(Input.GetMouseButtonDown(0));
+		
         if (Input.GetMouseButtonDown(0))
         {
 			StartPowerMeter();
@@ -35,7 +37,7 @@ public class SliderMove : MonoBehaviour
     //棒状のパワーメーターを開始したい時に呼ぶ。
     void StartPowerMeter()
 	{
-		Debug.Log("A");
+		
 		powerMeter = StartCoroutine("PowerMeter");
 	}
 
@@ -43,7 +45,7 @@ public class SliderMove : MonoBehaviour
 	//棒状
 	IEnumerator PowerMeter()
 	{
-		Debug.Log("B");
+		
 		powerMeterElapsedTime = 0;
 
 		while (true)
@@ -51,10 +53,10 @@ public class SliderMove : MonoBehaviour
 			powerMeterElapsedTime += Time.deltaTime * powerMeterSpeedRate;
 
 			//最後まで行くと往復ループVer。
-			powerMeterSlider.value = Mathf.PingPong(powerMeterElapsedTime, 1.0f);
+			powerMeterSlider.value = Mathf.PingPong(powerMeterElapsedTime, 10.0f);
 			//最後まで行くと最初からループVer。
 			//			powerMeterSlider.value = powerMeterElapsedTime % 1.0f;
-			Debug.Log("C");
+			
 			//画面をタップすると停止してパワーを確定。
 			if (Input.GetMouseButtonUp(0))
 			{
