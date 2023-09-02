@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class StateUI : MonoBehaviour
 {
     [SerializeField] private Text stateTex;
-    //[SerializeField] private Animator anim;
+    [SerializeField] private Animator anim;
     private void Awake()
     {
         stateTex.text = null;
@@ -15,7 +15,7 @@ public class StateUI : MonoBehaviour
     {
         stateTex.text = state.ToString();
         StartCoroutine(ResetText());
-        //anim.SetTrigger("Pop");
+        anim.SetTrigger("Pop");
     }
     private IEnumerator ResetText()
     {

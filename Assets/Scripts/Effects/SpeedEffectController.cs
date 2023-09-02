@@ -10,30 +10,21 @@ public class SpeedEffectController : MonoBehaviour
     [SerializeField] private ParticleSystem rightEffect = null;
     [SerializeField] private ScrollTexture st;
 
-    public enum SPEED_STEP
+    [SerializeField] private float[] speedTable = new float[8];
+    private int speedIndex = 0;
+    public int SpeedIndex
     {
-        Slow = 0,
-        Middle = 50,
-        Fast = 100
+        get { return speedIndex; }
+        private set {; }
     }
-    private SPEED_STEP speedStep = SPEED_STEP.Slow;
-    public SPEED_STEP SpeedStep 
-    { 
-        private get { return speedStep; } 
-        set 
-        { 
-            speedStep = value;
-            currentSpeedPer = (float)speedStep / 100;
-        } 
-    }
-    private float currentSpeedPer = 0f;
     private float currentSpeed = 0f;
+
+    private void Start()
+    {
+        ConfirmSpeed();
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0)) SpeedStep = SPEED_STEP.Slow;
-        else if (Input.GetKeyDown(KeyCode.Alpha1)) SpeedStep = SPEED_STEP.Middle;
-        else if (Input.GetKeyDown(KeyCode.Alpha2)) SpeedStep = SPEED_STEP.Fast;
-        currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, currentSpeedPer);
         var leftMain = leftEffect.main;
         var rightMain = rightEffect.main;
         leftMain.startSpeed = currentSpeed;
@@ -44,6 +35,24 @@ public class SpeedEffectController : MonoBehaviour
         leftEmission.rateOverTime = currentSpeed;
         rightEmission.rateOverTime = currentSpeed;
 
-        st.SpeedPer = currentSpeedPer;
+    }
+
+    public void AddSpeed()
+    {
+        speedIndex++;
+        if (speedIndex >= speedTable.Length) speedIndex = speedTable.Length - 1;
+        ConfirmSpeed();
+    }
+    public void SubSpeed()
+    {
+        speedIndex--;
+        if (speedIndex < 0) speedIndex = 0;
+        ConfirmSpeed();
+    }
+    private void ConfirmSpeed()
+    {
+        st.SpeedPer = speedTable[speedIndex];
+        currentSpeed = Mathf.Lerp(minSpeed, maxSpeed, speedTable[speedIndex]);
+        Locator<ScoreManagerTest>.Instance.AddMoveDistance(currentSpeed);
     }
 }
