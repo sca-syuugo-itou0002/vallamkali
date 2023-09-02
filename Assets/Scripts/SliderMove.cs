@@ -28,11 +28,13 @@ public class SliderMove : MonoBehaviour
 
     private void Update()
     {
-		
+		#if false
         if (Input.GetMouseButtonDown(0))
         {
 			StartPowerMeter();
         }
+		#endif
+		
 	}
     //棒状のパワーメーターを開始したい時に呼ぶ。
     void StartPowerMeter()

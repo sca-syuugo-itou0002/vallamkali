@@ -33,6 +33,8 @@ public class SlotCont2 : MonoBehaviour
     private bool isStop = false;
     private bool canStop = false;
 
+    private int leftButtonClickCount = 0;
+    private int rightButtonClickCount = 0;
     //UI
     [SerializeField] private StateUI leftText;
     [SerializeField] private StateUI rightText;
@@ -49,9 +51,50 @@ public class SlotCont2 : MonoBehaviour
     {
         Initialization();
     }
+    // マウスのクリック操作をボタンに関連付けるための関数
+    public void LeftButtonClicked()
+    {
+        if (leftButtonClickCount % 2 == 0)
+        {
+            isLeftStart = true;
+        }
+        else
+        {
+            isLeftStart = false;
+            leftText.StateDisplay(CheckPosition(leftPoint, leftCritical, leftBar));
+        }
+        leftButtonClickCount++;
+    }
 
+    public void RightButtonClicked()
+    {
+        if (rightButtonClickCount % 2 == 0)
+        {
+            isRightStart = true;
+        }
+        else
+        {
+            isRightStart = false;
+            rightText.StateDisplay(CheckPosition(rightPoint, rightCritical, rightBar));
+        }
+        rightButtonClickCount++;
+    }
     void Update()
     {
+        if (isLeftStart)
+        {
+            leftStep = SetBar(leftBar, leftStep);
+        }
+        if (isRightStart)
+        {
+            rightStep = SetBar(rightBar, rightStep);
+        }
+        /*
+        if (isRightStart == true || isLeftStart == true)
+        {
+            StartCoroutine(ResetButton());
+        }*/
+#if false
         canStop = isLeftStart && isRightStart;
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !isLeftStart && !isStop)
         {
@@ -61,7 +104,7 @@ public class SlotCont2 : MonoBehaviour
         {   
             isRightStart = true;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && canStop)
+        if (Input.GetMouseButtonUp(0) && canStop)
         {
             leftText.StateDisplay(CheckPosition(leftPoint, leftCritical, leftBar));
             rightText.StateDisplay(CheckPosition(rightPoint, rightCritical, rightBar));
@@ -77,7 +120,19 @@ public class SlotCont2 : MonoBehaviour
         {
             rightStep = SetBar(rightBar, rightStep);
         }
+#endif
 
+    }
+    // ボタンのクリックでバーを停止するための関数
+    private void StopBar(Image point, Image crit, Image bar, StateUI text)
+    {
+        if (isLeftStart || isRightStart)
+        {
+            isLeftStart = false;
+            isRightStart = false;
+            text.StateDisplay(CheckPosition(point, crit, bar));
+            StartCoroutine(ResetButton());
+        }
     }
     private void ResetBar(Image target)
     {
@@ -139,8 +194,10 @@ public class SlotCont2 : MonoBehaviour
     {
         float barPos = bar.rectTransform.localPosition.x;
         
-        float critMin = crit.rectTransform.localPosition.x - crit.rectTransform.sizeDelta.x / 2;
-        float critMax = crit.rectTransform.localPosition.x + crit.rectTransform.sizeDelta.x / 2;
+        float critMin = crit.rectTransform.localPosition.x - 
+            crit.rectTransform.sizeDelta.x / 2;
+        float critMax = crit.rectTransform.localPosition.x + 
+            crit.rectTransform.sizeDelta.x / 2;
         bool isCritical = critMin <= barPos && barPos <= critMax;
         if (isCritical) 
         {
