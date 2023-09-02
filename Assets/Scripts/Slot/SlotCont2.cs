@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SocialPlatforms;
+using static SpeedEffectController;
 
 public class SlotCont2 : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class SlotCont2 : MonoBehaviour
 
     private bool isLeftStart = false;
     private bool isRightStart = false;
+    private bool isStop = false;
     private bool canStop = false;
 
     private int leftButtonClickCount = 0;
@@ -36,6 +38,8 @@ public class SlotCont2 : MonoBehaviour
     //UI
     [SerializeField] private StateUI leftText;
     [SerializeField] private StateUI rightText;
+
+    [SerializeField] private SpeedEffectController sec;
 
     public enum TIMING_STATE
     {
@@ -47,7 +51,7 @@ public class SlotCont2 : MonoBehaviour
     {
         Initialization();
     }
-    // �}�E�X�̃N���b�N������{�^���Ɋ֘A�t���邽�߂̊֐�
+    // マウスのクリック操作をボタンに関連付けるための関数
     public void LeftButtonClicked()
     {
         if (leftButtonClickCount % 2 == 0)
@@ -92,11 +96,11 @@ public class SlotCont2 : MonoBehaviour
         }*/
 #if false
         canStop = isLeftStart && isRightStart;
-        if (Input.GetMouseButtonDown(0) && !isLeftStart)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !isLeftStart && !isStop)
         {
             isLeftStart = true;
         }
-        if (Input.GetMouseButtonDown(0) && !isRightStart)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !isRightStart && !isStop)
         {   
             isRightStart = true;
         }
@@ -104,6 +108,7 @@ public class SlotCont2 : MonoBehaviour
         {
             leftText.StateDisplay(CheckPosition(leftPoint, leftCritical, leftBar));
             rightText.StateDisplay(CheckPosition(rightPoint, rightCritical, rightBar));
+            isStop = true;
             StartCoroutine(ResetButton());
         }
 
@@ -118,7 +123,7 @@ public class SlotCont2 : MonoBehaviour
 #endif
 
     }
-    // �{�^���̃N���b�N�Ńo�[���~���邽�߂̊֐�
+    // ボタンのクリックでバーを停止するための関数
     private void StopBar(Image point, Image crit, Image bar, StateUI text)
     {
         if (isLeftStart || isRightStart)
@@ -170,12 +175,13 @@ public class SlotCont2 : MonoBehaviour
 
     private float SetRange()
     {
-        float range = pointRange / (1.0f + (0.1f * combos));
+        float range = pointRange / (1.0f + (0.1f * sec.SpeedIndex));
         return range;
     }
 
     private void Initialization()
     {
+        isStop = false;
         leftStep = 0f;
         rightStep = 0f;
         ResetBar(leftBar);
@@ -193,13 +199,23 @@ public class SlotCont2 : MonoBehaviour
         float critMax = crit.rectTransform.localPosition.x + 
             crit.rectTransform.sizeDelta.x / 2;
         bool isCritical = critMin <= barPos && barPos <= critMax;
-        if (isCritical) return TIMING_STATE.Great;
-        float pointMin = point.rectTransform.localPosition.x - 
-            point.rectTransform.sizeDelta.x / 2;
-        float pointMax = point.rectTransform.localPosition.x + 
-            point.rectTransform.sizeDelta.x / 2;
+        if (isCritical) 
+        {
+            sec.AddSpeed();
+            return TIMING_STATE.Great;
+        }
+        
+        float pointMin = point.rectTransform.localPosition.x - point.rectTransform.sizeDelta.x / 2;
+        float pointMax = point.rectTransform.localPosition.x + point.rectTransform.sizeDelta.x / 2;
         bool isPoint = pointMin <= barPos && barPos <= pointMax;
-        if(isPoint) return TIMING_STATE.Good;
-        else return TIMING_STATE.Bad;
+        if (isPoint)
+        {
+            return TIMING_STATE.Good;
+        }
+        else
+        {
+            sec.SubSpeed();
+            return TIMING_STATE.Bad;
+        }
     }
 }

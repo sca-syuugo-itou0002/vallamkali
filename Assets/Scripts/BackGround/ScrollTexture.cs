@@ -20,6 +20,7 @@ public class ScrollTexture : MonoBehaviour
         speed = Mathf.Lerp(minSpeed, maxSpeed, speedPer);
         currentOffset.y += speed * Time.deltaTime;
         if (currentOffset.y >= rescrollPos) currentOffset.y -= rescrollPos;
+        
         mat.SetTextureOffset("_MainTex", currentOffset);
     }
 }
