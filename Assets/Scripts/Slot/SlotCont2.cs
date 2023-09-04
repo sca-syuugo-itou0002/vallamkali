@@ -30,7 +30,9 @@ public class SlotCont2 : MonoBehaviour
 
     private bool isLeftStart = false;
     private bool isRightStart = false;
-    private bool isStop = false;
+    
+    private bool isStopLeft = false;
+    private bool isStopRight = false;
     private bool canStop = false;
 
     private int leftButtonClickCount = 0;
@@ -54,28 +56,34 @@ public class SlotCont2 : MonoBehaviour
     // マウスのクリック操作をボタンに関連付けるための関数
     public void LeftButtonClicked()
     {
+        Debug.Log("Left button clicked");
         if (leftButtonClickCount % 2 == 0)
         {
+            
             isLeftStart = true;
         }
         else
         {
             isLeftStart = false;
             leftText.StateDisplay(CheckPosition(leftPoint, leftCritical, leftBar));
+            isStopLeft=true;
         }
         leftButtonClickCount++;
     }
 
     public void RightButtonClicked()
     {
+        Debug.Log("Right button clicked");
         if (rightButtonClickCount % 2 == 0)
         {
+           
             isRightStart = true;
         }
         else
         {
             isRightStart = false;
             rightText.StateDisplay(CheckPosition(rightPoint, rightCritical, rightBar));
+            isStopRight=true;
         }
         rightButtonClickCount++;
     }
@@ -89,11 +97,10 @@ public class SlotCont2 : MonoBehaviour
         {
             rightStep = SetBar(rightBar, rightStep);
         }
-        /*
-        if (isRightStart == true || isLeftStart == true)
+        if (isStopLeft == true && isStopRight == true)
         {
             StartCoroutine(ResetButton());
-        }*/
+        }
 #if false
         canStop = isLeftStart && isRightStart;
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !isLeftStart && !isStop)
@@ -123,17 +130,19 @@ public class SlotCont2 : MonoBehaviour
 #endif
 
     }
+    /*
     // ボタンのクリックでバーを停止するための関数
     private void StopBar(Image point, Image crit, Image bar, StateUI text)
     {
         if (isLeftStart || isRightStart)
         {
+            //isStop=true;
             isLeftStart = false;
             isRightStart = false;
             text.StateDisplay(CheckPosition(point, crit, bar));
             StartCoroutine(ResetButton());
         }
-    }
+    }*/
     private void ResetBar(Image target)
     {
         var pos = target.rectTransform.localPosition;
@@ -166,8 +175,11 @@ public class SlotCont2 : MonoBehaviour
     }
     private IEnumerator ResetButton()
     {
+        Debug.Log("Reset");
         isLeftStart = false;
         isRightStart = false;
+        isStopLeft = false;
+        isStopRight = false;
         yield return new WaitForSeconds(1.0f);
         
         Initialization();
@@ -181,7 +193,7 @@ public class SlotCont2 : MonoBehaviour
 
     private void Initialization()
     {
-        isStop = false;
+        //isStop = false;
         leftStep = 0f;
         rightStep = 0f;
         ResetBar(leftBar);
