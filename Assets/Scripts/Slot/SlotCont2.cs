@@ -33,11 +33,11 @@ public class SlotCont2 : MonoBehaviour
     
     private bool isStopLeft = false;
     private bool isStopRight = false;
-    private bool canStop = false;
+    //private bool canStop = false;
 
     private int leftButtonClickCount = 0;
     private int rightButtonClickCount = 0;
-    PlayerMoveTest PM;
+    [SerializeField] private PlayerMoveTest pm;
     //UI
     [SerializeField] private StateUI leftText;
     [SerializeField] private StateUI rightText;
@@ -53,6 +53,7 @@ public class SlotCont2 : MonoBehaviour
     void Awake()
     {
         Initialization();
+        pm = FindObjectOfType<PlayerMoveTest>();
     }
     // マウスのクリック操作をボタンに関連付けるための関数
     public void LeftButtonClicked()
@@ -101,7 +102,11 @@ public class SlotCont2 : MonoBehaviour
         if (isStopLeft == true && isStopRight == true)
         {
             StartCoroutine(ResetButton());
-            PM.PlayerMove();
+            if (pm != null)
+            {
+                Debug.Log("20");
+                pm.PlayerMove();
+            }
         }
 #if false
         canStop = isLeftStart && isRightStart;

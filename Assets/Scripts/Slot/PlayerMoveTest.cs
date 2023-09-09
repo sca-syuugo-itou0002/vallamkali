@@ -6,19 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMoveTest : MonoBehaviour
 {
-    public float speed = 5.0f; // プレイヤーの移動速度
-    private bool isMoving = false; // プレイヤーが移動中かどうかのフラグ
+    [SerializeField]private float speed = 0.05f; // プレイヤーの移動速度
     private float targetY; // 移動のターゲット位置
     private float startY; // 移動開始時のY座標
-    private float moveInterval = 1.0f; // 移動間隔
-    private float lastMoveTime; // 最後に移動した時間
-    private void Start()
+
+#if false
+   void Awake()
     {
         startY = transform.position.y;
         lastMoveTime = Time.time;
     }
     public void PlayerMove()
     {
+        startY = transform.position.y;
+        lastMoveTime = Time.deltaTime;
         if (isMoving)
         {
             // ターゲット位置まで移動
@@ -39,7 +40,7 @@ public class PlayerMoveTest : MonoBehaviour
 
             // プレイヤーを移動させる
             transform.Translate(movement);
-            float currentTime = Time.time;
+            float currentTime = Time.deltaTime;
             if (currentTime - lastMoveTime >= moveInterval)
             {
                 targetY = transform.position.y + 3.0f; // 1.0f の距離だけ上に移動
@@ -47,6 +48,39 @@ public class PlayerMoveTest : MonoBehaviour
                 lastMoveTime = currentTime;
             }
         }
+    }
+#endif
+    void start()
+    {
+        //startY = transform.position.y;
+    }
+
+    public void PlayerMove()
+    {
+        Debug.Log("Yes");
+
+        startY = transform.position.y;
+        targetY = startY + 2.0f; // 上方向に3.0f移動
+        StartCoroutine(Player());
+        
+       
+    }
+    IEnumerator Player()
+    {
+        // ターゲット位置まで移動
+        float step = speed * Time.deltaTime;
+        while (step < 1)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,
+            new Vector3(transform.position.x, targetY, transform.position.z), step);
+            step+=speed*Time.deltaTime;
+            yield return null;
+        }
+        if (targetY == 14)
+        {
+            startY -= 15;
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

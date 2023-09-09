@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float lastMoveTime; // ÅŒã‚ÉˆÚ“®‚µ‚½ŠÔ
     public Text Scoretext;
     private int score_num=0;
+
     private void Start()
     {
         startY = transform.position.y;
