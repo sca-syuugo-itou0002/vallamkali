@@ -69,6 +69,7 @@ public class SlotCont2 : MonoBehaviour
             isLeftStart = false;
             leftText.StateDisplay(CheckPosition(leftPoint, leftCritical, leftBar));
             isStopLeft=true;
+            StopJudge();
         }
         leftButtonClickCount++;
     }
@@ -86,8 +87,21 @@ public class SlotCont2 : MonoBehaviour
             isRightStart = false;
             rightText.StateDisplay(CheckPosition(rightPoint, rightCritical, rightBar));
             isStopRight=true;
+            StopJudge();
         }
         rightButtonClickCount++;
+    }
+    void StopJudge()
+    {
+        if (isStopLeft == true && isStopRight == true)
+        {
+            StartCoroutine(ResetButton());
+            if (pm != null)
+            {
+                Debug.Log("20");
+                pm.PlayerMove();
+            }
+        }
     }
     void Update()
     {
@@ -99,15 +113,7 @@ public class SlotCont2 : MonoBehaviour
         {
             rightStep = SetBar(rightBar, rightStep);
         }
-        if (isStopLeft == true && isStopRight == true)
-        {
-            StartCoroutine(ResetButton());
-            if (pm != null)
-            {
-                Debug.Log("20");
-                pm.PlayerMove();
-            }
-        }
+        
 #if false
         canStop = isLeftStart && isRightStart;
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !isLeftStart && !isStop)

@@ -9,7 +9,8 @@ public class PlayerMoveTest : MonoBehaviour
     [SerializeField]private float speed = 0.05f; // プレイヤーの移動速度
     private float targetY; // 移動のターゲット位置
     private float startY; // 移動開始時のY座標
-
+    GameObject Maingame_BG;
+    [SerializeField] private Enemy en;
 #if false
    void Awake()
     {
@@ -50,17 +51,18 @@ public class PlayerMoveTest : MonoBehaviour
         }
     }
 #endif
-    void start()
+    void Start()
     {
-        //startY = transform.position.y;
+        startY = transform.position.y;
+        en = FindObjectOfType<Enemy>();
     }
 
     public void PlayerMove()
     {
         Debug.Log("Yes");
 
-        startY = transform.position.y;
-        targetY = startY + 2.0f; // 上方向に3.0f移動
+        // = transform.position.y;
+        targetY = startY + 2.0f; // 上方向に2.0f移動
         StartCoroutine(Player());
         
        
@@ -68,19 +70,24 @@ public class PlayerMoveTest : MonoBehaviour
     IEnumerator Player()
     {
         // ターゲット位置まで移動
-        float step = speed * Time.deltaTime;
+        float step = 0f;
+        Vector3 startPos = transform.position;
         while (step < 1)
         {
-            transform.position = Vector3.MoveTowards(transform.position,
+            transform.position = Vector3.Lerp(startPos,
             new Vector3(transform.position.x, targetY, transform.position.z), step);
-            step+=speed*Time.deltaTime;
+            step += speed *Time.deltaTime;
             yield return null;
         }
-        if (targetY == 14)
+        step = 0;
+        startPos = transform.position;
+        while (step < 1)
         {
-            startY -= 15;
+            transform.position = Vector3.Lerp(startPos,
+            new Vector3(transform.position.x, startY, transform.position.z), step);
+            step += speed * Time.deltaTime;
+            yield return null;
         }
-
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -88,10 +95,7 @@ public class PlayerMoveTest : MonoBehaviour
         {
             Locator<ScoreManagerTest>.Instance.AddScore();
             Destroy(other.gameObject);
+            en.spawn();
         }
-    }
-    public void SwitchResultScene()
-    {
-
     }
 }

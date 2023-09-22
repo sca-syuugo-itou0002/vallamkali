@@ -50,8 +50,8 @@ public class ScoreManagerTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        totalMoveDistance += ((Time.deltaTime * currentSpeed)/100f);
         time += Time.deltaTime;
+        totalMoveDistance += ((Time.deltaTime * currentSpeed)/100f);
         UpdateText();
     }
     public void UpdateText()
