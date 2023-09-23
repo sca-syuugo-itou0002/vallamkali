@@ -11,9 +11,9 @@ public class EnemyMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(0, -0.001f, 0);
+        transform.Translate(0, -0.015f, 0);
     }
     public void enemymove()
     {
