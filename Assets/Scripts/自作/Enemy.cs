@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public void spawn()
     {
         Instantiate(enemy);
-        transform.position=new Vector3(0,5,0);
+        transform.position=new Vector3(0,7,0);
         
     }
     // Update is called once per frame

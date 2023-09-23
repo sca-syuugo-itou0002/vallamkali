@@ -14,9 +14,9 @@ public class ScoreManagerTest : MonoBehaviour
     [SerializeField] private Text scoreText;
     public int totalScore = 0; //合計スコア 
     private float currentSpeed = 0f;
-    [SerializeField] int timeLimit;
+    [SerializeField] public int timeLimit;
     [SerializeField] private Text CountTimeText;
-    float time;
+    private float time;
     public static float resulitdistance;
     public static int resulitscore;
     public static float getresulitdistance()
@@ -47,11 +47,15 @@ public class ScoreManagerTest : MonoBehaviour
         totalScore++;
         UpdateText();
     }
+    private void Start()
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
-        totalMoveDistance += ((Time.deltaTime * currentSpeed)/100f);
+        totalMoveDistance += ((Time.deltaTime * currentSpeed)/10f);
         UpdateText();
     }
     public void UpdateText()
