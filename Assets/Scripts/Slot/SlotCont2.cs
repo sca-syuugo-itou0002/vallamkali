@@ -43,17 +43,25 @@ public class SlotCont2 : MonoBehaviour
     [SerializeField] private StateUI rightText;
 
     [SerializeField] private SpeedEffectController sec;
-
+    public AudioClip sound1;
+    public AudioClip sound2;
+    public AudioClip sound3;
+    AudioSource audioSource;
     public enum TIMING_STATE
     {
         Bad,
         Good,
         Great
     }
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Awake()
     {
         Initialization();
         pm = FindObjectOfType<PlayerMoveTest>();
+       
     }
     // マウスのクリック操作をボタンに関連付けるための関数
     public void LeftButtonClicked()
@@ -227,7 +235,9 @@ public class SlotCont2 : MonoBehaviour
         if (isCritical) 
         {
             sec.AddSpeed();
+            audioSource.PlayOneShot(sound1);
             return TIMING_STATE.Great;
+           
         }
         
         float pointMin = point.rectTransform.localPosition.x - point.rectTransform.sizeDelta.x / 2;
@@ -235,11 +245,14 @@ public class SlotCont2 : MonoBehaviour
         bool isPoint = pointMin <= barPos && barPos <= pointMax;
         if (isPoint)
         {
+            audioSource.PlayOneShot(sound2);
             return TIMING_STATE.Good;
+
         }
         else
         {
             sec.SubSpeed();
+            audioSource.PlayOneShot(sound3);
             return TIMING_STATE.Bad;
         }
     }
