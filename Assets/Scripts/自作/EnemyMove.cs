@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
+    public float stopYPosition = 1.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,10 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(0, -0.015f, 0);
+        if (transform.position.y > stopYPosition)
+        {
+            transform.Translate(0, -0.015f, 0);
+        }
     }
     public void enemymove()
     {
