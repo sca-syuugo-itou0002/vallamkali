@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    public float stopYPosition = 1.5f;
+    public float stopYPosition = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
