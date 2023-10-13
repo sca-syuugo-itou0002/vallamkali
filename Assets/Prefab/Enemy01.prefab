@@ -185,8 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c3bb21ab046206419ab3c935fc8f64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopYPosition: 2
+  stopYPosition: 3
   anim: {fileID: 1425264311467578307}
+  targetPos: {x: 0, y: 0}
 --- !u!95 &1425264311467578307
 Animator:
   serializedVersion: 3

@@ -22,7 +22,7 @@ public class EnemyMove : MonoBehaviour
         }
         if (transform.position.y > stopYPosition)
         {
-            transform.Translate(0, -0.015f, 0);
+            transform.Translate(0, -0.02f, 0);
         }
     }
 
