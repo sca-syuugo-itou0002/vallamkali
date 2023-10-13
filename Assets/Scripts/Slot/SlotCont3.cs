@@ -47,7 +47,7 @@ public class SlotCont3 : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        if (juge1 != null)
+        if (juge1 != null&&juge2!=null)
         {
             startScale = juge1.transform.localScale;
             startTime = Time.time;
@@ -74,6 +74,7 @@ public class SlotCont3 : MonoBehaviour
             float newWidth = Mathf.Lerp(startScale.x, targetWidth, t);
             float newHeight = Mathf.Lerp(startScale.y, targetHeight, t);
             juge1.transform.localScale = new Vector3(newWidth, newHeight, 1.0f);
+            juge2.transform.localScale = new Vector3(newWidth, newHeight, 1.0f);
             elapsedTime = Time.time - startTime;
             yield return null;
         }
