@@ -75,7 +75,7 @@ public class SlotCont2 : MonoBehaviour
         else
         {
             isLeftStart = false;
-            leftText.StateDisplay(CheckPosition(leftPoint, leftCritical, leftBar));
+            //leftText.StateDisplay(CheckPosition(leftPoint, leftCritical, leftBar));
             isStopLeft=true;
             StopJudge();
         }
@@ -93,7 +93,7 @@ public class SlotCont2 : MonoBehaviour
         else
         {
             isRightStart = false;
-            rightText.StateDisplay(CheckPosition(rightPoint, rightCritical, rightBar));
+            //rightText.StateDisplay(CheckPosition(rightPoint, rightCritical, rightBar));
             isStopRight=true;
             StopJudge();
         }
