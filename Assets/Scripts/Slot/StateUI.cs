@@ -11,7 +11,7 @@ public class StateUI : MonoBehaviour
     {
         stateTex.text = null;
     }
-    public void StateDisplay(SlotCont2.TIMING_STATE state)
+    public void StateDisplay(SlotCont3.TIMING_STATE state)
     {
         stateTex.text = state.ToString();
         StartCoroutine(ResetText());

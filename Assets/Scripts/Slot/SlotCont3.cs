@@ -9,24 +9,25 @@ public class SlotCont3 : MonoBehaviour
     [SerializeField] private GameObject juge1;
     [SerializeField] private GameObject juge2;
     public float duration = 5.0f; // 縮小の期間（秒）
-    public float targetWidth = 0f; // 最終的な幅
-    public float targetHeight = 0f; // 最終的な高さ
+    public float targetx = 0f; // 最終的な幅
+    public float targety = 0f; // 最終的な高さ
+    public float resetDuration = 2.0f; // リセットの期間（秒）
     private Vector3 startScale;
     private float startTime;
-    private float leftStep;
-    private float rightStep;
+    public Vector3 StoppedScaleLeft; // 停止時のサイズを記録(左)
+    public Vector3 StoppedScaleRight; // 停止時のサイズを記録(右)
+    private bool isScalingLeft = true;
+    private bool isScalingRight = true;
+    Vector3 GreatPoint = new Vector3(0.75f, 0.75f, 1);
+    Vector3 GoodPoint = new Vector3(0.5f, 0.5f, 1);
 
     [SerializeField] private float speed;
 
     private int combos = 0;
     public int Combos { set { combos = value; } }
 
-    private bool isLeftStart = false;
-    private bool isRightStart = false;
-    
     private bool isStopLeft = false;
     private bool isStopRight = false;
-    //private bool canStop = false;
 
     [SerializeField] private PlayerMoveTest pm;
     //UI
@@ -38,6 +39,7 @@ public class SlotCont3 : MonoBehaviour
     public AudioClip sound2;
     public AudioClip sound3;
     AudioSource audioSource;
+
     public enum TIMING_STATE
     {
         Bad,
@@ -47,9 +49,25 @@ public class SlotCont3 : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        if (juge1 != null&&juge2!=null)
+        
+    }
+    void Awake()
+    {
+        pm = FindObjectOfType<PlayerMoveTest>();
+        new WaitForSeconds(2.0f);
+        juge1.SetActive(false);
+        juge2.SetActive(false);
+        JugeMove();
+       
+    }
+    private void JugeMove()
+    {
+        if (juge1 != null && juge2 != null)
         {
+            juge1.SetActive(true);
+            juge2.SetActive(true);
             startScale = juge1.transform.localScale;
+            startScale = juge2.transform.localScale;
             startTime = Time.time;
             StartCoroutine(ScaleObjectOverTime());
         }
@@ -58,40 +76,32 @@ public class SlotCont3 : MonoBehaviour
             Debug.LogError("Target GameObject is not assigned.");
         }
     }
-    void Awake()
-    {
-        Initialization();
-        pm = FindObjectOfType<PlayerMoveTest>();
-       
-    }
-    IEnumerator ScaleObjectOverTime()
-    {
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            float t = elapsedTime / duration;
-            float newWidth = Mathf.Lerp(startScale.x, targetWidth, t);
-            float newHeight = Mathf.Lerp(startScale.y, targetHeight, t);
-            juge1.transform.localScale = new Vector3(newWidth, newHeight, 1.0f);
-            juge2.transform.localScale = new Vector3(newWidth, newHeight, 1.0f);
-            elapsedTime = Time.time - startTime;
-            yield return null;
-        }
-
-        // 確実に最終的なサイズを設定
-        juge1.transform.localScale = new Vector3(targetWidth, targetHeight, 1.0f);
-    }
     // マウスのクリック操作をボタンに関連付けるための関数
     public void LeftButtonClicked()
     {
             isStopLeft=true;
+        if (isScalingLeft)
+        {
+            StoppedScaleLeft=juge1.transform.localScale;
+            juge1.SetActive(false);
+            leftText.StateDisplay(CheckScale());
+            Debug.Log("juge1Scale");
+            Debug.Log(juge1.transform.localScale);
+        }
             StopJudge();
     }
 
     public void RightButtonClicked()
     {
             isStopRight=true;
+        if (isScalingRight)
+        {
+            StoppedScaleRight=juge2.transform.localScale;
+            juge2.SetActive(false);
+            rightText.StateDisplay(CheckScale());
+            Debug.Log("juge2Scale");
+            Debug.Log(juge2.transform.localScale);
+        }
             StopJudge();
     }
     void StopJudge()
@@ -101,42 +111,88 @@ public class SlotCont3 : MonoBehaviour
             StartCoroutine(ResetButton());
             if (pm != null)
             {
-                
                 pm.PlayerMove();
             }
         }
     }
-    void Update()
+    private IEnumerator ScaleObjectOverTime()
     {
+        float elapsedTime = 0f;
 
+        while (elapsedTime < duration)
+        {
+            if (isScalingLeft==isScalingRight)
+            {
+                float t = elapsedTime / duration;
+                float newX = Mathf.Lerp(startScale.x, targetx, t);
+                float newY = Mathf.Lerp(startScale.y, targety, t);
+                juge1.transform.localScale = new Vector3(newX, newY, 1.0f);
+                juge2.transform.localScale = new Vector3(newX, newY, 1.0f);
+                elapsedTime = Time.time - startTime;
+                yield return null;
+            }
+            else
+            {
+                yield return null;
+            }
+        }
 
+        // 確実に最終的なサイズを設定
+        juge1.transform.localScale = new Vector3(targetx, targety, 1.0f);
+        juge2.transform.localScale = new Vector3(targetx, targety, 1.0f);
     }
     private IEnumerator ResetButton()
     {
         isStopLeft = false;
         isStopRight = false;
         yield return new WaitForSeconds(1.0f);
-       
-        Initialization();
+        StartCoroutine(ResetScale());
     }
 
 
-    private void Initialization()
+    IEnumerator ResetScale()
     {
-        
-        leftStep = 0f;
-        rightStep = 0f;
+        if (!isScalingLeft&&!isScalingRight)
+        {
+            // リセット中なので何もしない
+            yield break;
+        }
+
+        isScalingLeft = false;
+        isScalingRight=false;
+
+        // サイズをリセット
+        Vector3 currentScaleLeft = juge1.transform.localScale;
+        Vector3 currentScaleRight = juge2.transform.localScale;
+        float resetStartTime = Time.time;
+        float resetElapsedTime = 0f;
+
+        while (resetElapsedTime < resetDuration)
+        {
+            float t = resetElapsedTime / resetDuration;
+            float newXLeft = Mathf.Lerp(currentScaleLeft.x, startScale.x, t);
+            float newYLeft = Mathf.Lerp(currentScaleLeft.y, startScale.y, t);
+            float newXRight = Mathf.Lerp(currentScaleRight.x, startScale.x, t);
+            float newYRight = Mathf.Lerp(currentScaleRight.y, startScale.y, t);
+            juge1.transform.localScale = new Vector3(newXLeft, newYLeft, 1.0f);
+            juge2.transform.localScale = new Vector3(newXRight, newYRight, 1.0f);
+            resetElapsedTime = Time.time - resetStartTime;
+            yield return null;
+        }
+
+        // リセット後、再び縮小を開始
+        isScalingLeft = true;
+        juge1.SetActive(true);
+        isScalingRight=true;
+        juge2.SetActive(true);
+        startTime = Time.time;
+        StartCoroutine(ScaleObjectOverTime());
     }
-    private  TIMING_STATE CheckPosition(Image point, Image crit, Image bar)
+    private  TIMING_STATE CheckScale()
     {
-        float barPos = bar.rectTransform.localPosition.x;
-        
-        float critMin = crit.rectTransform.localPosition.x - 
-            crit.rectTransform.sizeDelta.x / 2;
-        float critMax = crit.rectTransform.localPosition.x + 
-            crit.rectTransform.sizeDelta.x / 2;
-        bool isCritical = juge1;
-        if (isCritical) 
+        Vector3 ScaleLeft = StoppedScaleLeft;
+        Vector3 ScaleRight = StoppedScaleRight;
+        if (ScaleLeft==GreatPoint||ScaleRight==GreatPoint) 
         {
             sec.AddSpeed();
             audioSource.PlayOneShot(sound1);
@@ -144,10 +200,9 @@ public class SlotCont3 : MonoBehaviour
            
         }
         
-        float pointMin = point.rectTransform.localPosition.x - point.rectTransform.sizeDelta.x / 2;
-        float pointMax = point.rectTransform.localPosition.x + point.rectTransform.sizeDelta.x / 2;
-        bool isPoint = pointMin <= barPos && barPos <= pointMax;
-        if (isPoint)
+        
+        
+        if (ScaleLeft==GoodPoint||ScaleRight==GoodPoint)
         {
             audioSource.PlayOneShot(sound2);
             return TIMING_STATE.Good;
@@ -159,5 +214,6 @@ public class SlotCont3 : MonoBehaviour
             audioSource.PlayOneShot(sound3);
             return TIMING_STATE.Bad;
         }
-    }
+
+     }
 }

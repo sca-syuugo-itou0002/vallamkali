@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopYPosition: 3
   anim: {fileID: 1425264311467578307}
-  targetPos: {x: 0, y: 0}
+  targetPos: {x: 3, y: 0}
 --- !u!95 &1425264311467578307
 Animator:
   serializedVersion: 3
