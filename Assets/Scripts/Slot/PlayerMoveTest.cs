@@ -59,8 +59,6 @@ public class PlayerMoveTest : MonoBehaviour
 
     public void PlayerMove()
     {
-        Debug.Log("Yes");
-
         // = transform.position.y;
         targetY = startY + 3.0f; // ã•ûŒü‚É2.0fˆÚ“®
         StartCoroutine(Player());
