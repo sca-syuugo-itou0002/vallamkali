@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2255246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &359130754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6828,7 +6828,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1176807282}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SlotCont2, Assembly-CSharp
         m_MethodName: LeftButtonClicked
         m_Mode: 1
@@ -12119,12 +12119,11 @@ GameObject:
   - component: {fileID: 1176807285}
   - component: {fileID: 1176807284}
   - component: {fileID: 1176807283}
-  - component: {fileID: 1176807281}
-  - component: {fileID: 1176807280}
-  - component: {fileID: 1176807282}
   - component: {fileID: 1176807286}
   - component: {fileID: 1176807287}
   - component: {fileID: 1176807288}
+  - component: {fileID: 1176807281}
+  - component: {fileID: 1176807280}
   m_Layer: 0
   m_Name: NewGameObject
   m_TagString: Untagged
@@ -12141,7 +12140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1176807279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63e7857575770e4428b4e3c9439d21ef, type: 3}
+  m_Script: {fileID: 11500000, guid: b0405a36c686c974280129ab1d41a50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stateTex: {fileID: 1642334314}
@@ -12160,38 +12159,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateTex: {fileID: 1028693747}
   anim: {fileID: 1028693749}
---- !u!114 &1176807282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176807279}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6d1b7097c18c5644b441eec04f3f5d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftPoint: {fileID: 1265647973}
-  leftBar: {fileID: 1527381153}
-  rightPoint: {fileID: 463620008}
-  rightBar: {fileID: 1101188893}
-  leftCritical: {fileID: 448217267}
-  rightCritical: {fileID: 1466386187}
-  minBar: -750
-  maxBar: 750
-  minPoint: -400
-  maxPoint: 400
-  pointRange: 750
-  criticalPoint: 5
-  speed: 0.8
-  pm: {fileID: 1471147116}
-  leftText: {fileID: 1176807281}
-  rightText: {fileID: 1176807280}
-  sec: {fileID: 1176807283}
-  sound1: {fileID: 8300000, guid: bdff1117f86eea54ab0144c3d435a7f0, type: 3}
-  sound2: {fileID: 8300000, guid: 0495dbf1b55e68444a82264e3e19adaf, type: 3}
-  sound3: {fileID: 8300000, guid: 1d75adda7accb9140943c39de822cf05, type: 3}
 --- !u!114 &1176807283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12383,9 +12350,9 @@ MonoBehaviour:
   StoppedScaleRight: {x: 0, y: 0, z: 0}
   speed: 2
   pm: {fileID: 1471147116}
-  sm: {fileID: 0}
+  sm: {fileID: 1176807286}
   leftText: {fileID: 1176807281}
-  rightText: {fileID: 1176807281}
+  rightText: {fileID: 1176807280}
   sec: {fileID: 1176807283}
   sound1: {fileID: 8300000, guid: bdff1117f86eea54ab0144c3d435a7f0, type: 3}
   sound2: {fileID: 8300000, guid: 0495dbf1b55e68444a82264e3e19adaf, type: 3}
@@ -14176,7 +14143,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1176807282}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SlotCont2, Assembly-CSharp
         m_MethodName: RightButtonClicked
         m_Mode: 1
