@@ -64,18 +64,17 @@ public class SlotCont3 : MonoBehaviour
         pm = FindObjectOfType<PlayerMoveTest>();
         audioSource = GetComponent<AudioSource>();
         sm=FindObjectOfType<ScoreManagerTest>();
-        //JugeMove();
+        JugeMove();
         
     }
     void Awake()
     {
         juge1.SetActive(false);
         juge2.SetActive(false);
-        JugeMove();
+        //JugeMove();
     }
     private void Update()
     {
-#if false
         touchduration[0]+=Time.deltaTime;
         touchduration[1]+=Time.deltaTime;
         var touchcount=Input.touchCount;
@@ -91,10 +90,12 @@ public class SlotCont3 : MonoBehaviour
                     if (touch.position.x > 720)
                     {
                         isRight[touch.fingerId]=true;
+                        //Juge2Move();
                     }
                     else
                     {
                         isRight[touch.fingerId]=false;
+                        //JugeMove();
                     }
                     break;
                 case TouchPhase.Moved:
@@ -125,7 +126,6 @@ public class SlotCont3 : MonoBehaviour
                     break;
             }
         }
-#endif
     }
     private void JugeMove()
     {
@@ -139,7 +139,22 @@ public class SlotCont3 : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Target GameObject is not assigned.");
+            //Debug.LogError("Target GameObject is not assigned.");
+        }
+    }
+    private void Juge2Move()
+    {
+        if (juge1 != null || juge2 != null)
+        {
+            juge2.SetActive(true);
+            juge2.transform.localScale = startScale;
+            startTime = Time.time;
+            StartCoroutine(ScaleObjectOverTimeJuge2());
+
+        }
+        else
+        {
+            //Debug.LogError("Target GameObject is not assigned.");
         }
     }
     // マウスのクリック操作をボタンに関連付けるための関数
@@ -151,10 +166,8 @@ public class SlotCont3 : MonoBehaviour
             StoppedScaleLeft=juge1.transform.localScale;
             juge1.SetActive(false);
             leftText.StateDisplay(CheckScale());
-            juge2.SetActive(true);
-            juge2.transform.localScale = startScale;
-            startTime02=Time.time;
-            StartCoroutine(ScaleObjectOverTimeJuge2());
+            new WaitForSeconds(2.0f);
+            Juge2Move();
         }
         stopduration01=Time.time;
         Debug.Log(stopduration01);
