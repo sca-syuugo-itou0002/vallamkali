@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     }
     public void spawn()
     {
-        Debug.Log("a");
+        //Debug.Log("a");
         Instantiate(enemy, generatePos, Quaternion.identity);
     }
 }
