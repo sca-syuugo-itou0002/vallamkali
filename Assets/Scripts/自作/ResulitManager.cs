@@ -15,8 +15,8 @@ public class ResulitManager : MonoBehaviour
     {
         ResulitMoveDistance=ScoreManagerTest.getresulitdistance();
         ResulitScore=ScoreManagerTest.getreusltscore();
-        ResulitmoveDistance.text= "ˆÚ“®‹——£:" + ResulitMoveDistance.ToString("F1")+"m";
-        Resulitscore.text= "’Ç‚¢‰z‚µ‚½“G:" + ResulitScore.ToString("F0");
+        ResulitmoveDistance.text= ResulitMoveDistance.ToString("F1");
+        Resulitscore.text= ResulitScore.ToString("F0");
     }
 
     // Update is called once per frame
