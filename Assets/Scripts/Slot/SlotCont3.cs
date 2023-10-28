@@ -10,20 +10,20 @@ public class SlotCont3 : MonoBehaviour
     private GameObject juge1;
     [SerializeField] 
     private GameObject juge2;
-    private float duration = 6.0f; // 縮小の期間（秒)
+    private float duration = 8.0f; // 縮小の期間（秒)
     public float targetx = 0f; // 最終的な幅
     public float targety = 0f; // 最終的な高さ
     public float resetDuration = 0.5f; // リセットの期間（秒）
     private Vector3 startScale=new Vector3(2.0f,2.0f,1);
     private Vector3 startScale2= new Vector3(2.0f, 2.0f, 1);
-    private float startTime;
-    private float startTime02;
+    private float startTime=0;
+    private float startTime02=0;
     public Vector3 StoppedScaleLeft; // 停止時のサイズを記録(左)
     public Vector3 StoppedScaleRight; // 停止時のサイズを記録(右)
     private bool isScalingLeft = true;
     private bool isScalingRight = true;
-    float stopduration01;
-    float stopduration02;
+    float stopduration01=0f;
+    float stopduration02=0f;
 
     [SerializeField] private float speed;
 
@@ -169,8 +169,8 @@ public class SlotCont3 : MonoBehaviour
             leftText.StateDisplay(CheckScale());
             Juge2Move();
         }
-        stopduration01=Time.time;
-        //Debug.Log(stopduration01);
+        stopduration01=Time.time-stopduration02;
+        Debug.Log(stopduration01);
         StopJudge();
     }
 
@@ -183,8 +183,8 @@ public class SlotCont3 : MonoBehaviour
             juge2.SetActive(false);
             rightText.StateDisplay(CheckScale());
         }
-        stopduration02 = Time.time ;
-        //Debug.Log(stopduration02);
+        stopduration02 = Time.time - stopduration01;
+        Debug.Log(stopduration02);
         StopJudge();
     }
     void StopJudge()
@@ -272,7 +272,6 @@ public class SlotCont3 : MonoBehaviour
         isScalingLeft = true;
         juge1.SetActive(true);
         isScalingRight=true;
-        startTime = Time.time;
         if (sm.timeLimit == 90)
         {
             duration-=1.0f;
@@ -293,10 +292,10 @@ public class SlotCont3 : MonoBehaviour
     {
 
         float jyoukenn1 = duration % stopduration01;
-        Debug.Log($"jyouken1,{duration % stopduration01}");
+        Debug.Log($"jyouken1,{jyoukenn1}");
         float jyoukenn2 = duration % stopduration02;
-        Debug.Log($"jyouken2,{duration % stopduration02}");
-        if (jyoukenn1 <= 2  || jyoukenn2 <= 2 ) 
+        Debug.Log($"jyouken2,{jyoukenn2}");
+        if (jyoukenn1 <= 0  || jyoukenn2 <= 0 ) 
         {
             sec.AddSpeed();
             audioSource.PlayOneShot(sound1);
@@ -304,7 +303,7 @@ public class SlotCont3 : MonoBehaviour
             return TIMING_STATE.Great;
            
         }
-        if (jyoukenn1 >= 1.5 || jyoukenn2 >= 1.5)
+        if (jyoukenn1 > 1 || jyoukenn2 > 1)
         {
             audioSource.PlayOneShot(sound2);
             ///Debug.Log("2");

@@ -60,10 +60,10 @@ public class ScoreManagerTest : MonoBehaviour
     }
     public void UpdateText()
     {
-        moveDistanceText.text = "à⁄ìÆãóó£:" + totalMoveDistance.ToString("F1") + "m";
-        scoreText.text = "í«Ç¢âzÇµÇΩìG:" + totalScore.ToString("F0");
+        moveDistanceText.text = totalMoveDistance.ToString("F1");
+        scoreText.text =  totalScore.ToString("F0");
         int remaining = timeLimit - (int)time;
-        CountTimeText.text = "êßå¿éûä‘ÅF"+remaining.ToString("D3");
+        CountTimeText.text = remaining.ToString("D3");
         if (remaining == 0)
         {
             SceneManager.LoadScene("Resulit", LoadSceneMode.Single);
