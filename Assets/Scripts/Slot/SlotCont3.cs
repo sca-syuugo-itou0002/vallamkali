@@ -8,14 +8,22 @@ public class SlotCont3 : MonoBehaviour
 { 
     [SerializeField] 
     private GameObject juge1;
+    [SerializeField]
+    private GameObject jugeFream;
     [SerializeField] 
     private GameObject juge2;
+    [SerializeField]
+    private GameObject juge2Fream;
     private float duration = 8.0f; // 縮小の期間（秒)
-    public float targetx = 0f; // 最終的な幅
-    public float targety = 0f; // 最終的な高さ
+    public float targetx = 0.8f; // 最終的な幅
+    public Vector3 StartPositionJuge = new Vector3(-1400, 0, 0);
+    public Vector3 TargetPositionJuge=new Vector3(-189,0,0);
+    public Vector3 StartPositionJuge02 = new Vector3(1400, 0, 0);
+    public Vector3 TargetPositionJuge02 = new Vector3(0, 0, 0);
+    public float targety = 0.8f; // 最終的な高さ
     public float resetDuration = 0.5f; // リセットの期間（秒）
-    private Vector3 startScale=new Vector3(2.0f,2.0f,1);
-    private Vector3 startScale2= new Vector3(2.0f, 2.0f, 1);
+    private Vector3 startScale=new Vector3(3.0f,3.0f,1);
+    private Vector3 startScale2= new Vector3(3.0f, 3.0f, 1);
     private float startTime=0;
     private float startTime02=0;
     public Vector3 StoppedScaleLeft; // 停止時のサイズを記録(左)
@@ -69,7 +77,9 @@ public class SlotCont3 : MonoBehaviour
     void Awake()
     {
         juge1.SetActive(false);
+        jugeFream.SetActive(false);
         juge2.SetActive(false);
+        juge2Fream.SetActive(false);
         //JugeMove();
     }
     private void Update()
@@ -131,6 +141,7 @@ public class SlotCont3 : MonoBehaviour
         if (juge1 != null && juge2 != null)
         {
             juge1.SetActive(true);
+            jugeFream.SetActive(true);
             juge1.transform.localScale = startScale;
             startTime = Time.time;
             StartCoroutine(ScaleObjectOverTimeJuge1());
@@ -148,6 +159,7 @@ public class SlotCont3 : MonoBehaviour
         {
             new WaitForSeconds(2.0f);
             juge2.SetActive(true);
+            juge2Fream.SetActive(true);
             juge2.transform.localScale = startScale2;
             startTime02 = Time.time;
             StartCoroutine(ScaleObjectOverTimeJuge2());
@@ -166,6 +178,7 @@ public class SlotCont3 : MonoBehaviour
         {
             StoppedScaleLeft=juge1.transform.localScale;
             juge1.SetActive(false);
+            jugeFream.SetActive(false);
             leftText.StateDisplay(CheckScale());
             Juge2Move();
         }
@@ -181,6 +194,7 @@ public class SlotCont3 : MonoBehaviour
         {
             StoppedScaleRight=juge2.transform.localScale;
             juge2.SetActive(false);
+            juge2Fream.SetActive(false);
             rightText.StateDisplay(CheckScale());
         }
         stopduration02 = Time.time - stopduration01;
@@ -207,6 +221,9 @@ public class SlotCont3 : MonoBehaviour
             float t = elapsedTime / duration;
             float newX = Mathf.Lerp(startScale.x, targetx, t);
             float newY = Mathf.Lerp(startScale.y, targety, t);
+            float targetX = Mathf.Lerp(StartPositionJuge.x, TargetPositionJuge.x, t);
+            Debug.Log(targetX);
+            juge1.GetComponent<RectTransform>().anchoredPosition = new Vector3(targetX, -80, 1.0f);
             juge1.transform.localScale = new Vector3(newX, newY, 1.0f);
             elapsedTime = Time.time - startTime;
             //Debug.Log(elapsedTime);
@@ -223,6 +240,8 @@ public class SlotCont3 : MonoBehaviour
             float t = elapsedTime02 / duration;
             float newX = Mathf.Lerp(startScale2.x, targetx, t);
             float newY = Mathf.Lerp(startScale2.y, targety, t);
+            float targetX=Mathf.Lerp(StartPositionJuge02.x, TargetPositionJuge02.x,t);
+            juge2.GetComponent<RectTransform>().anchoredPosition = new Vector3(targetX, -80, 1.0f);
             juge2.transform.localScale = new Vector3(newX, newY, 1.0f);
             elapsedTime02 = Time.time - startTime02;
             yield return null;
