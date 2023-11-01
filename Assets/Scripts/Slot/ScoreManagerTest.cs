@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 public class ScoreManagerTest : MonoBehaviour
 {
@@ -9,13 +10,16 @@ public class ScoreManagerTest : MonoBehaviour
     {
         get; private set;
     }
-    [SerializeField] private Text moveDistanceText;
+    //[SerializeField] private Text moveDistanceText;
+    [SerializeField] private TextMeshProUGUI _moveDistanceText;
     public float totalMoveDistance = 0f; //合計移動距離
-    [SerializeField] private Text scoreText;
+    //[SerializeField] private Text scoreText;
+    [SerializeField] private TextMeshProUGUI _scoreText;
     public int totalScore = 0; //合計スコア 
     private float currentSpeed = 0f;
     [SerializeField] public int timeLimit;
-    [SerializeField] private Text CountTimeText;
+    //[SerializeField] private Text CountTimeText;
+    [SerializeField] private TextMeshProUGUI _CountTimeText;
     private float time;
     public static float resulitdistance;
     public static int resulitscore;
@@ -60,10 +64,10 @@ public class ScoreManagerTest : MonoBehaviour
     }
     public void UpdateText()
     {
-        moveDistanceText.text = totalMoveDistance.ToString("F1");
-        scoreText.text =  totalScore.ToString("F0");
+        _moveDistanceText.text = totalMoveDistance.ToString("F1");
+        _scoreText.text =  totalScore.ToString("F0");
         int remaining = timeLimit - (int)time;
-        CountTimeText.text = remaining.ToString("D3");
+        _CountTimeText.text = remaining.ToString("D3");
         if (remaining == 0)
         {
             SceneManager.LoadScene("Resulit", LoadSceneMode.Single);
