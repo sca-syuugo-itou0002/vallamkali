@@ -14,7 +14,7 @@ public class SlotCont3 : MonoBehaviour
     private GameObject juge2;
     [SerializeField]
     private GameObject juge2Fream;
-    private float duration = 8.0f; // 縮小の期間（秒)
+    private float duration = 4.0f; // 縮小の期間（秒)
     public float targetx = 0.8f; // 最終的な幅
     public Vector3 StartPositionJuge = new Vector3(-1400, 0, 0);
     public Vector3 TargetPositionJuge=new Vector3(-189,0,0);
@@ -30,8 +30,11 @@ public class SlotCont3 : MonoBehaviour
     public Vector3 StoppedScaleRight; // 停止時のサイズを記録(右)
     private bool isScalingLeft = true;
     private bool isScalingRight = true;
-    float stopduration01=0f;
-    float stopduration02=0f;
+    private float stopduration01=0f;
+    private float stop01= 0f;
+    private float stopduration02=0f;
+    private float stop02 = 0f;
+    private bool beingMeasured;
 
     [SerializeField] private float speed;
 
@@ -182,8 +185,10 @@ public class SlotCont3 : MonoBehaviour
             leftText.StateDisplay(CheckScale());
             Juge2Move();
         }
-        stopduration01=Time.time-stopduration02;
-        Debug.Log(stopduration01);
+        stop01=stopduration01;
+        stopduration01=0;
+        float jyoukenn1 = 8 % stop01;
+        Debug.Log(stop01);
         StopJudge();
     }
 
@@ -197,8 +202,9 @@ public class SlotCont3 : MonoBehaviour
             juge2Fream.SetActive(false);
             rightText.StateDisplay(CheckScale());
         }
-        stopduration02 = Time.time - stopduration01;
-        Debug.Log(stopduration02);
+        stop02 = stopduration02;
+        stopduration02=0;
+        Debug.Log(stop02);
         StopJudge();
     }
     void StopJudge()
@@ -222,10 +228,11 @@ public class SlotCont3 : MonoBehaviour
             float newX = Mathf.Lerp(startScale.x, targetx, t);
             float newY = Mathf.Lerp(startScale.y, targety, t);
             float targetX = Mathf.Lerp(StartPositionJuge.x, TargetPositionJuge.x, t);
-            Debug.Log(targetX);
+            //Debug.Log(targetX);
             juge1.GetComponent<RectTransform>().anchoredPosition = new Vector3(targetX, -80, 1.0f);
             juge1.transform.localScale = new Vector3(newX, newY, 1.0f);
             elapsedTime = Time.time - startTime;
+            stopduration01+=Time.deltaTime;
             //Debug.Log(elapsedTime);
             yield return null;
         }
@@ -244,7 +251,8 @@ public class SlotCont3 : MonoBehaviour
             juge2.GetComponent<RectTransform>().anchoredPosition = new Vector3(targetX, -80, 1.0f);
             juge2.transform.localScale = new Vector3(newX, newY, 1.0f);
             elapsedTime02 = Time.time - startTime02;
-            yield return null;
+            stopduration02 += Time.deltaTime;
+           yield return null;
         }
         juge2.transform.localScale = new Vector3(targetx, targety, 1.0f);
     }
@@ -291,30 +299,18 @@ public class SlotCont3 : MonoBehaviour
         isScalingLeft = true;
         juge1.SetActive(true);
         isScalingRight=true;
-        if (sm.timeLimit == 90)
-        {
-            duration-=1.0f;
-            Debug.Log(duration);
-        }else if (sm.timeLimit == 60)
-        {
-            duration-=1.0f;
-            Debug.Log(duration);
-        }
-        else if (sm.timeLimit == 30)
-        {
-            duration-=1.0f;
-            Debug.Log(duration);
-        }
         JugeMove();
     }
     private  TIMING_STATE CheckScale()
     {
 
-        float jyoukenn1 = duration % stopduration01;
+        float jyoukenn1 = 8 % stop01;
+        //Debug.Log(duration);
         Debug.Log($"jyouken1,{jyoukenn1}");
-        float jyoukenn2 = duration % stopduration02;
-        Debug.Log($"jyouken2,{jyoukenn2}");
-        if (jyoukenn1 <= 0  || jyoukenn2 <= 0 ) 
+        float jyoukenn2 = 8 % stop02;
+        //Debug.Log(duration);
+        //Debug.Log($"jyouken2,{jyoukenn2}");
+        if (jyoukenn1 >= 0 && jyoukenn1 <= 1 || jyoukenn2 >= 0  && jyoukenn2 <= 1) 
         {
             sec.AddSpeed();
             audioSource.PlayOneShot(sound1);
@@ -322,7 +318,7 @@ public class SlotCont3 : MonoBehaviour
             return TIMING_STATE.Great;
            
         }
-        if (jyoukenn1 > 1 || jyoukenn2 > 1)
+        if (jyoukenn1 > 1.1 && jyoukenn1 <= 2 || jyoukenn2 > 1.1 && jyoukenn2 <= 2)
         {
             audioSource.PlayOneShot(sound2);
             ///Debug.Log("2");

@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ResulitManager : MonoBehaviour
 {
-    [SerializeField] private Text ResulitmoveDistance;
+    //[SerializeField] private Text ResulitmoveDistance;
+    [SerializeField] private TextMeshProUGUI _ResulitmoveDistance;
     public float ResulitMoveDistance;
-    [SerializeField] private Text Resulitscore;
+    //[SerializeField] private Text Resulitscore;
+    [SerializeField] private TextMeshProUGUI _Resulitscore;
     public int ResulitScore;
     
     // Start is called before the first frame update
@@ -15,8 +18,8 @@ public class ResulitManager : MonoBehaviour
     {
         ResulitMoveDistance=ScoreManagerTest.getresulitdistance();
         ResulitScore=ScoreManagerTest.getreusltscore();
-        ResulitmoveDistance.text= ResulitMoveDistance.ToString("F1");
-        Resulitscore.text= ResulitScore.ToString("F0");
+        _ResulitmoveDistance.text= ResulitMoveDistance.ToString("F1");
+        _Resulitscore.text= ResulitScore.ToString("F0");
     }
 
     // Update is called once per frame
