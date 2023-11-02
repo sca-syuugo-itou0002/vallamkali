@@ -304,10 +304,10 @@ public class SlotCont3 : MonoBehaviour
     private  TIMING_STATE CheckScale()
     {
 
-        float jyoukenn1 = 8 % stop01;
+        float jyoukenn1 = duration / stop01;
         //Debug.Log(duration);
         Debug.Log($"jyouken1,{jyoukenn1}");
-        float jyoukenn2 = 8 % stop02;
+        float jyoukenn2 = duration / stop02;
         //Debug.Log(duration);
         //Debug.Log($"jyouken2,{jyoukenn2}");
         if (jyoukenn1 >= 0 && jyoukenn1 <= 1 || jyoukenn2 >= 0  && jyoukenn2 <= 1) 
