@@ -13,4 +13,8 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene("Titel", LoadSceneMode.Single);
     }
+    public void SwitchManualScene()
+    {
+        SceneManager.LoadScene("Setumei",LoadSceneMode.Single);
+    }
 }
