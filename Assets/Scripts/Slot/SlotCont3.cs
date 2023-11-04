@@ -15,13 +15,13 @@ public class SlotCont3 : MonoBehaviour
     [SerializeField]
     private GameObject juge2Fream;
     private float duration = 4.0f; // 縮小の期間（秒)
-    public float targetx = 0.8f; // 最終的な幅
-    public Vector3 StartPositionJuge = new Vector3(-1400, 0, 0);
-    public Vector3 TargetPositionJuge=new Vector3(-189,0,0);
-    public Vector3 StartPositionJuge02 = new Vector3(1400, 0, 0);
-    public Vector3 TargetPositionJuge02 = new Vector3(0, 0, 0);
-    public float targety = 0.8f; // 最終的な高さ
-    public float resetDuration = 0.5f; // リセットの期間（秒）
+    public float targetx ; // 最終的な幅
+    public float targety; // 最終的な高さ
+    public float resetDuration ; // リセットの期間（秒）
+    public Vector3 StartPositionJuge = new Vector3(-1400, -80, 0);
+    public Vector3 TargetPositionJuge=new Vector3(-189,-80,0);
+    public Vector3 StartPositionJuge02 = new Vector3(1400, -80, 0);
+    public Vector3 TargetPositionJuge02 = new Vector3(0, -80, 0);
     private Vector3 startScale=new Vector3(3.0f,3.0f,1);
     private Vector3 startScale2= new Vector3(3.0f, 3.0f, 1);
     private float startTime=0;
@@ -30,10 +30,10 @@ public class SlotCont3 : MonoBehaviour
     public Vector3 StoppedScaleRight; // 停止時のサイズを記録(右)
     private bool isScalingLeft = true;
     private bool isScalingRight = true;
-    private float stopduration01=0f;
-    private float stop01= 0f;
-    private float stopduration02=0f;
-    private float stop02 = 0f;
+    private float stopduration01;
+    private float stop01;
+    private float stopduration02;
+    private float stop02;
     private bool beingMeasured;
 
     [SerializeField] private float speed;
@@ -83,7 +83,6 @@ public class SlotCont3 : MonoBehaviour
         jugeFream.SetActive(false);
         juge2.SetActive(false);
         juge2Fream.SetActive(false);
-        //JugeMove();
     }
     private void Update()
     {
@@ -96,7 +95,6 @@ public class SlotCont3 : MonoBehaviour
             switch (touch.phase)
             {
                 case TouchPhase.Began:
-                    //Debug.Log("isTouch" + touch.fingerId);
                     touchduration[touch.fingerId]=0;
                     startpos[touch.fingerId]=touch.position;
                     if (touch.position.x > 720)
@@ -122,12 +120,10 @@ public class SlotCont3 : MonoBehaviour
                     if (diffY > -200) return;
                     if (isRight[touch.fingerId] == true)
                     {
-                        //Debug.Log("RightSwaip");
                         RightButtonClicked();
                     }
                     else
                     {
-                        //Debug.Log("LeftSwaip");
                         LeftButtonClicked();
 
                     }
@@ -157,7 +153,6 @@ public class SlotCont3 : MonoBehaviour
     }
     private void Juge2Move()
     {
-        //Debug.Log("Yes");
         if (juge1 != null && juge2 != null)
         {
             new WaitForSeconds(2.0f);
@@ -186,9 +181,6 @@ public class SlotCont3 : MonoBehaviour
             Juge2Move();
         }
         stop01=stopduration01;
-        stopduration01=0;
-        float jyoukenn1 = 8 % stop01;
-        Debug.Log(stop01);
         StopJudge();
     }
 
@@ -203,8 +195,6 @@ public class SlotCont3 : MonoBehaviour
             rightText.StateDisplay(CheckScale());
         }
         stop02 = stopduration02;
-        stopduration02=0;
-        Debug.Log(stop02);
         StopJudge();
     }
     void StopJudge()
@@ -221,19 +211,16 @@ public class SlotCont3 : MonoBehaviour
     private IEnumerator ScaleObjectOverTimeJuge1()
     {
         float elapsedTime = 0f;
-
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
             float newX = Mathf.Lerp(startScale.x, targetx, t);
             float newY = Mathf.Lerp(startScale.y, targety, t);
             float targetX = Mathf.Lerp(StartPositionJuge.x, TargetPositionJuge.x, t);
-            //Debug.Log(targetX);
             juge1.GetComponent<RectTransform>().anchoredPosition = new Vector3(targetX, -80, 1.0f);
             juge1.transform.localScale = new Vector3(newX, newY, 1.0f);
             elapsedTime = Time.time - startTime;
             stopduration01+=Time.deltaTime;
-            //Debug.Log(elapsedTime);
             yield return null;
         }
         juge1.transform.localScale = new Vector3(targetx, targety, 1.0f);
@@ -299,37 +286,43 @@ public class SlotCont3 : MonoBehaviour
         isScalingLeft = true;
         juge1.SetActive(true);
         isScalingRight=true;
+        stopduration01=0;
+        stopduration02=0;
+        float RandamDuration= Random.Range(0.5f,2.0f);
+        resetDuration = RandamDuration;
+        Debug.Log(resetDuration);
         JugeMove();
     }
     private  TIMING_STATE CheckScale()
     {
 
         float jyoukenn1 = duration / stop01;
-        //Debug.Log(duration);
-        Debug.Log($"jyouken1,{jyoukenn1}");
+        //Debug.Log($"jyouken1,{duration},{stop01}");
         float jyoukenn2 = duration / stop02;
-        //Debug.Log(duration);
         //Debug.Log($"jyouken2,{jyoukenn2}");
         if (jyoukenn1 >= 0 && jyoukenn1 <= 1 || jyoukenn2 >= 0  && jyoukenn2 <= 1) 
         {
             sec.AddSpeed();
             audioSource.PlayOneShot(sound1);
-            //Debug.Log("1");
             return TIMING_STATE.Great;
            
         }
         if (jyoukenn1 > 1.1 && jyoukenn1 <= 2 || jyoukenn2 > 1.1 && jyoukenn2 <= 2)
         {
             audioSource.PlayOneShot(sound2);
-            ///Debug.Log("2");
             return TIMING_STATE.Good;
 
+        }
+        else if(stopduration01>5.0||stopduration02>5.0)
+        {
+            sec.SubSpeed();
+            audioSource.PlayOneShot(sound3);
+            return TIMING_STATE.Bad;
         }
         else
         {
             sec.SubSpeed();
             audioSource.PlayOneShot(sound3);
-            //Debug.Log("3");
             return TIMING_STATE.Bad;
         }
      }
