@@ -84,6 +84,7 @@ public class SlotCont3 : MonoBehaviour
         juge2.SetActive(false);
         juge2Fream.SetActive(false);
     }
+
     private void Update()
     {
         touchduration[0]+=Time.deltaTime;
@@ -100,12 +101,12 @@ public class SlotCont3 : MonoBehaviour
                     if (touch.position.x > 720)
                     {
                         isRight[touch.fingerId]=true;
-                        //Juge2Move();
+                        
                     }
-                    else
+                    else if(touch.position.x<720)
                     {
                         isRight[touch.fingerId]=false;
-                        //JugeMove();
+                        
                     }
                     break;
                 case TouchPhase.Moved:
@@ -122,7 +123,7 @@ public class SlotCont3 : MonoBehaviour
                     {
                         RightButtonClicked();
                     }
-                    else
+                    else if(isRight[touch.fingerId]==false)
                     {
                         LeftButtonClicked();
 
@@ -174,7 +175,7 @@ public class SlotCont3 : MonoBehaviour
         isStopLeft=true;
         if (isScalingLeft)
         {
-            StoppedScaleLeft=juge1.transform.localScale;
+            //StoppedScaleLeft=juge1.transform.localScale;
             juge1.SetActive(false);
             jugeFream.SetActive(false);
             leftText.StateDisplay(CheckScale());
@@ -189,7 +190,7 @@ public class SlotCont3 : MonoBehaviour
             isStopRight=true;
         if (isScalingRight)
         {
-            StoppedScaleRight=juge2.transform.localScale;
+            //StoppedScaleRight=juge2.transform.localScale;
             juge2.SetActive(false);
             juge2Fream.SetActive(false);
             rightText.StateDisplay(CheckScale());
@@ -292,6 +293,7 @@ public class SlotCont3 : MonoBehaviour
         resetDuration = RandamDuration;
         Debug.Log(resetDuration);
         JugeMove();
+        
     }
     private  TIMING_STATE CheckScale()
     {
