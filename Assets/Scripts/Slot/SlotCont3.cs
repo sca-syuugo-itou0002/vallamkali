@@ -43,6 +43,10 @@ public class SlotCont3 : MonoBehaviour
 
     private bool isStopLeft = false;
     private bool isStopRight = false;
+    private bool countLeft = false;
+    private bool countRight = false;
+    private bool juge1Move = false;
+    private bool juge2Move = false;
 
     [SerializeField] 
     private PlayerMoveTest pm;
@@ -101,12 +105,14 @@ public class SlotCont3 : MonoBehaviour
                     if (touch.position.x > 720)
                     {
                         isRight[touch.fingerId]=true;
-                        
+                        countRight = true;
+                        countLeft = false;
                     }
                     else if(touch.position.x<720)
                     {
                         isRight[touch.fingerId]=false;
-                        
+                        countLeft = true;
+                        countRight = false;
                     }
                     break;
                 case TouchPhase.Moved:
@@ -119,14 +125,24 @@ public class SlotCont3 : MonoBehaviour
                     Vector2 endpos = touch.position;
                     float diffY = endpos.y - startpos[touch.fingerId].y;
                     if (diffY > -200) return;
-                    if (isRight[touch.fingerId] == true)
+                    if (juge1Move == true || juge2Move == true)
                     {
-                        RightButtonClicked();
-                    }
-                    else if(isRight[touch.fingerId]==false)
-                    {
-                        LeftButtonClicked();
-
+                        if (countRight == true && isRight[touch.fingerId] == true)
+                        {
+                            if (juge2Move == true)
+                            {
+                                RightButtonClicked();
+                                countRight = false;
+                            }
+                        }
+                        else if (countLeft == true && isRight[touch.fingerId] == false)
+                        {
+                            if (juge1Move == true)
+                            {
+                                LeftButtonClicked();
+                                countLeft = false;
+                            }
+                        }
                     }
                     break;
                 case TouchPhase.Canceled:
@@ -140,6 +156,7 @@ public class SlotCont3 : MonoBehaviour
     {
         if (juge1 != null && juge2 != null)
         {
+            juge1Move = true;
             juge1.SetActive(true);
             jugeFream.SetActive(true);
             juge1.transform.localScale = startScale;
@@ -156,6 +173,7 @@ public class SlotCont3 : MonoBehaviour
     {
         if (juge1 != null && juge2 != null)
         {
+            juge2Move = true;
             new WaitForSeconds(2.0f);
             juge2.SetActive(true);
             juge2Fream.SetActive(true);
@@ -179,6 +197,7 @@ public class SlotCont3 : MonoBehaviour
             juge1.SetActive(false);
             jugeFream.SetActive(false);
             leftText.StateDisplay(CheckScale());
+            juge1Move = false;
             Juge2Move();
         }
         stop01=stopduration01;
@@ -194,6 +213,7 @@ public class SlotCont3 : MonoBehaviour
             juge2.SetActive(false);
             juge2Fream.SetActive(false);
             rightText.StateDisplay(CheckScale());
+            juge2Move = false;
         }
         stop02 = stopduration02;
         StopJudge();
