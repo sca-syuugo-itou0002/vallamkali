@@ -14,7 +14,7 @@ public class SlotCont3 : MonoBehaviour
     private GameObject juge2;
     [SerializeField]
     private GameObject juge2Fream;
-    private float duration = 4.0f; // 縮小の期間（秒)
+    private float duration = 3.5f; // 縮小の期間（秒)
     public float targetx ; // 最終的な幅
     public float targety; // 最終的な高さ
     public float resetDuration ; // リセットの期間（秒）
@@ -311,7 +311,10 @@ public class SlotCont3 : MonoBehaviour
         stopduration02=0;
         float RandamDuration= Random.Range(0.5f,2.0f);
         resetDuration = RandamDuration;
+        float RandamDuration02 = Random.Range(1.5f, 2.5f);
+        duration = RandamDuration02;
         Debug.Log(resetDuration);
+        Debug.Log(duration);
         JugeMove();
         
     }

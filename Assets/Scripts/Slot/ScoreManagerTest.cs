@@ -15,6 +15,7 @@ public class ScoreManagerTest : MonoBehaviour
     public float totalMoveDistance = 0f; //合計移動距離
     //[SerializeField] private Text scoreText;
     [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private Text FinishText;
     public int totalScore = 0; //合計スコア 
     private float currentSpeed = 0f;
     [SerializeField] public int timeLimit;
@@ -53,7 +54,7 @@ public class ScoreManagerTest : MonoBehaviour
     }
     private void Start()
     {
-        
+        FinishText.enabled = false;
     }
     // Update is called once per frame
     void Update()
@@ -70,6 +71,9 @@ public class ScoreManagerTest : MonoBehaviour
         _CountTimeText.text = remaining.ToString("D3");
         if (remaining == 0)
         {
+            FinishText.enabled = true;
+            FinishText.text = ("Finish!");
+            new WaitForSeconds(2.0f);
             SceneManager.LoadScene("Resulit", LoadSceneMode.Single);
         }
         resulitdistance=totalMoveDistance;
