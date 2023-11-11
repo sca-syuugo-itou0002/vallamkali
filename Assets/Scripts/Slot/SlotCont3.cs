@@ -14,7 +14,7 @@ public class SlotCont3 : MonoBehaviour
     private GameObject juge2;
     [SerializeField]
     private GameObject juge2Fream;
-    private float duration = 3.5f; // 縮小の期間（秒)
+    private float duration = 1.0f; // 縮小の期間（秒)
     public float targetx ; // 最終的な幅
     public float targety; // 最終的な高さ
     public float resetDuration ; // リセットの期間（秒）
@@ -174,7 +174,6 @@ public class SlotCont3 : MonoBehaviour
         if (juge1 != null && juge2 != null)
         {
             juge2Move = true;
-            new WaitForSeconds(2.0f);
             juge2.SetActive(true);
             juge2Fream.SetActive(true);
             juge2.transform.localScale = startScale2;
@@ -262,6 +261,7 @@ public class SlotCont3 : MonoBehaviour
             stopduration02 += Time.deltaTime;
            yield return null;
         }
+
         juge2.transform.localScale = new Vector3(targetx, targety, 1.0f);
     }
     private IEnumerator ResetButton()
@@ -307,14 +307,15 @@ public class SlotCont3 : MonoBehaviour
         isScalingLeft = true;
         juge1.SetActive(true);
         isScalingRight=true;
-        stopduration01=0;
-        stopduration02=0;
-        float RandamDuration= Random.Range(0.5f,2.0f);
+        stopduration01=0f;
+        stopduration02=0f;
+        float RandamDuration= Random.Range(0.5f,1.0f);
         resetDuration = RandamDuration;
-        float RandamDuration02 = Random.Range(1.5f, 2.5f);
-        duration = RandamDuration02;
-        Debug.Log(resetDuration);
-        Debug.Log(duration);
+        //float RandamDuration02 = Random.Range(1.5f, 2.5f);
+        //duration = RandamDuration02;
+        Debug.Log(stopduration01);
+        Debug.Log(stopduration02);
+        
         JugeMove();
         
     }
@@ -325,14 +326,14 @@ public class SlotCont3 : MonoBehaviour
         //Debug.Log($"jyouken1,{duration},{stop01}");
         float jyoukenn2 = duration / stop02;
         //Debug.Log($"jyouken2,{jyoukenn2}");
-        if (jyoukenn1 >= 0 && jyoukenn1 <= 1 || jyoukenn2 >= 0  && jyoukenn2 <= 1) 
+        if (jyoukenn1 >= 0 && jyoukenn1 <= 1.05f || jyoukenn2 >= 0  && jyoukenn2 <= 1.05f) 
         {
             sec.AddSpeed();
             audioSource.PlayOneShot(sound1);
             return TIMING_STATE.Great;
            
         }
-        if (jyoukenn1 > 1.1 && jyoukenn1 <= 2 || jyoukenn2 > 1.1 && jyoukenn2 <= 2)
+        if (jyoukenn1 > 1.0 && jyoukenn1 <= 1.5 || jyoukenn2 > 1.0 && jyoukenn2 <= 1.5)
         {
             audioSource.PlayOneShot(sound2);
             return TIMING_STATE.Good;

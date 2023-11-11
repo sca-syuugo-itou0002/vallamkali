@@ -60,7 +60,7 @@ public class ScoreManagerTest : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        totalMoveDistance += ((Time.deltaTime * currentSpeed)/10f);
+        totalMoveDistance += ((Time.deltaTime * currentSpeed)/50f);
         UpdateText();
     }
     public void UpdateText()
